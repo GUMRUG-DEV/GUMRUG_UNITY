@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Platform
+  - Ground
+  - Death Box
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Above Ground
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Backest Background
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2490716555
+    locked: 0
+  - name: Above Ground
+    uniqueID: 3680082931
+    locked: 0
+  - name: '....'
+    uniqueID: 3994312331
+    locked: 0
+  - name: New Layer
+    uniqueID: 879082075
+    locked: 0
+  - name: New Layer
+    uniqueID: 1264861103
+    locked: 0
+  - name: New Layer
+    uniqueID: 3322179221
+    locked: 0
+  - name: New Layer
+    uniqueID: 1177039843
+    locked: 0
+  - name: Player
+    uniqueID: 3378686545
+    locked: 0
