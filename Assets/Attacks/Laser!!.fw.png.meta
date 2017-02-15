@@ -1,0 +1,661 @@
+fileFormatVersion: 2
+guid: 6580bbd6857aacd4bba68794f0592909
+timeCreated: 1484755976
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Laser!!.fw_0
+    21300002: Laser!!.fw_1
+    21300004: Laser!!.fw_2
+    21300006: Laser!!.fw_3
+    21300008: Laser!!.fw_4
+    21300010: Laser!!.fw_5
+    21300012: Laser!!.fw_6
+    21300014: Laser!!.fw_7
+    21300016: Laser!!.fw_8
+    21300018: Laser!!.fw_9
+    21300020: Laser!!.fw_10
+    21300022: Laser!!.fw_11
+    21300024: Laser!!.fw_12
+    21300026: Laser!!.fw_13
+    21300028: Laser!!.fw_14
+    21300030: Laser!!.fw_15
+    21300032: Laser!!.fw_16
+    21300034: Laser!!.fw_17
+    21300036: Laser!!.fw_18
+    21300038: Laser!!.fw_19
+    21300040: Laser!!.fw_20
+    21300042: Laser!!.fw_21
+    21300044: Laser!!.fw_22
+    21300046: Laser!!.fw_23
+    21300048: Laser!!.fw_24
+    21300050: Laser!!.fw_25
+    21300052: Laser!!.fw_26
+    21300054: Laser!!.fw_27
+    21300056: Laser!!.fw_28
+    21300058: Laser!!.fw_29
+    21300060: Laser!!.fw_30
+    21300062: Laser!!.fw_31
+    21300064: Laser!!.fw_32
+    21300066: Laser!!.fw_33
+    21300068: Laser!!.fw_34
+    21300070: Laser!!.fw_35
+    21300072: Laser!!.fw_36
+    21300074: Laser!!.fw_37
+    21300076: Laser!!.fw_38
+    21300078: Laser!!.fw_39
+    21300080: Laser!!.fw_40
+    21300082: Laser!!.fw_41
+    21300084: Laser!!.fw_42
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Laser!!.fw_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 524
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 522
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_2
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 520
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_3
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 520
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_4
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 520
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_5
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 520
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_6
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 520
+        width: 27
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 440
+        width: 36
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 440
+        width: 47
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_9
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 440
+        width: 56
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_10
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 440
+        width: 64
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_11
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 440
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_12
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 440
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_13
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 440
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 360
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 360
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_16
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 360
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_17
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 360
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_18
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 360
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_19
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 360
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_20
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 360
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_21
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 280
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_22
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 280
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_23
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 280
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_24
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 280
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_25
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 280
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_26
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 280
+        width: 71
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_27
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 280
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_28
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 200
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_29
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 200
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_30
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 200
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_31
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 200
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_32
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 200
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_33
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 200
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_34
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 200
+        width: 71
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_35
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 120
+        width: 69
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_36
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 120
+        width: 64
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_37
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 120
+        width: 56
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_38
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 120
+        width: 49
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_39
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 120
+        width: 39
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_40
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 120
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_41
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 120
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Laser!!.fw_42
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 40
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
