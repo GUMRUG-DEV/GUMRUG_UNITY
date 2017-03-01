@@ -72,9 +72,7 @@ public class HapHatScript : MonoBehaviour
     {
 
         Move();
-        while (HapHat.animator.Int("Direction", 1)) {
-
-        }
+      
         //gameObject.GetComponent<SpriteRenderer>().flipX = true;
 
 
