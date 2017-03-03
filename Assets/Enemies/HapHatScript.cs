@@ -72,9 +72,15 @@ public class HapHatScript : MonoBehaviour
     {
 
         Move();
+<<<<<<< HEAD:Assets/Enemies/HapHatScript.cs
 
       
 
+=======
+        while (HapHat.animator.Int("Direction", 1)) {
+
+        }
+>>>>>>> parent of b167a1a... NYEH:Assets/Enemies/HapHatScript.cs
         //gameObject.GetComponent<SpriteRenderer>().flipX = true;
 
 
