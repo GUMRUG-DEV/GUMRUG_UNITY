@@ -75,7 +75,7 @@ public class phy_Controller : MonoBehaviour
             Debug.Log("Going down.");
             foreach (Transform point in DownRaycastOrigins)
             {
-                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.down * 5 * dirY), Vector2.up * dirY, rayLength, CollisionMask);
+                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.down * SkinWidth * dirY), Vector2.up * dirY, rayLength, CollisionMask);
                 
                 if (hit)
                 {
