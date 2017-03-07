@@ -64,7 +64,7 @@ public class phy_Controller : MonoBehaviour
                 if (hit)
                 {
                     
-                    Debug.Log("HIT!");
+                   
                     velocity.y = (hit.distance - SkinWidth) * dirY;
                     rayLength = hit.distance;
                 }
@@ -72,14 +72,14 @@ public class phy_Controller : MonoBehaviour
         }
         else
         {
-            Debug.Log("Going down.");
+            
             foreach (Transform point in DownRaycastOrigins)
             {
                 RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.down * SkinWidth * dirY), Vector2.up * dirY, rayLength, CollisionMask);
                 
                 if (hit)
                 {
-                    Debug.Log("HIT!");
+                    
                     Debug.Log(hit.distance);
                     velocity.y = (hit.distance - SkinWidth) * dirY;
                     rayLength = hit.distance;
@@ -104,8 +104,8 @@ public class phy_Controller : MonoBehaviour
 
                 if (hit)
                 {
-                    
-                    velocity.x = hit.distance * dirX;
+                    Debug.Log("Horizontal Hit");
+                    velocity.x = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
                 }
             }
@@ -119,8 +119,8 @@ public class phy_Controller : MonoBehaviour
 
                 if (hit)
                 {
-                    
-                    velocity.x = hit.distance * dirX;
+                    Debug.Log("Horizontal Hit");
+                    velocity.x = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
                 }
             }
@@ -130,7 +130,9 @@ public class phy_Controller : MonoBehaviour
 
     public void Move()
     {
+        
         gameObject.transform.Translate(phystat_Vel); 
+        
 
     }
 
