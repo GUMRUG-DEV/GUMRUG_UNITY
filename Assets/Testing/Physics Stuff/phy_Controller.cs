@@ -99,7 +99,7 @@ public class phy_Controller : MonoBehaviour
             foreach (Transform point in RightRaycastOrigins)
             {
                 
-                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.left * SkinWidth * dirX), Vector2.up * dirX, rayLength, CollisionMask);
+                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.left * SkinWidth * dirX), Vector2.right * dirX, rayLength, CollisionMask);
                 
 
                 if (hit)
@@ -114,7 +114,7 @@ public class phy_Controller : MonoBehaviour
         {
             foreach (Transform point in LeftRaycastOrigins)
             {
-                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.left * SkinWidth * dirX), Vector2.up * dirX, rayLength, CollisionMask);
+                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.left * SkinWidth * dirX), Vector2.right * dirX, rayLength, CollisionMask);
                
 
                 if (hit)

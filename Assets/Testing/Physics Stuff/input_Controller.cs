@@ -27,10 +27,10 @@ public class input_Controller : MonoBehaviour
     void FixedUpdate()
     {
         phy_Controller.phystat_Vel.y += gravity * Time.deltaTime;
-        phy_Controller.phystat_Vel.y = -1;
-
-        phy_Controller.HorizontalCollisions(ref phy_Controller.phystat_Vel);
+       
         phy_Controller.VerticalCollisions(ref phy_Controller.phystat_Vel);
+        phy_Controller.HorizontalCollisions(ref phy_Controller.phystat_Vel);
+
         Debug.Log(phy_Controller.phystat_Vel);
         phy_Controller.Move();
     }
