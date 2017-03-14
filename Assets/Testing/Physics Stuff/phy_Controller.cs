@@ -37,6 +37,7 @@ public class phy_Controller : MonoBehaviour
          phystat_Mass;
 
 
+    public float collision;
 
     public test_Character test_One = new test_Character();
 
@@ -66,6 +67,7 @@ public class phy_Controller : MonoBehaviour
                     
                    
                     velocity.y = (hit.distance - SkinWidth) * dirY;
+                    Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance;
                 }
             }
@@ -79,9 +81,9 @@ public class phy_Controller : MonoBehaviour
                 
                 if (hit)
                 {
-                    
-                    Debug.Log(hit.distance);
+                                       
                     velocity.y = (hit.distance - SkinWidth) * dirY;
+                    Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance;
                 }
             }
@@ -120,6 +122,7 @@ public class phy_Controller : MonoBehaviour
                 if (hit)
                 {
                     Debug.Log("Horizontal Hit");
+                    collision = hit.distance - SkinWidth;
                     velocity.x = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
                 }
