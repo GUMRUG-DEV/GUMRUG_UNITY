@@ -9,9 +9,9 @@ public class character
     public Transform transform;
     public Animator animator;
     public SpriteRenderer spr_renderer;
-    public Collider2D col_Circle;
-    public Collider2D col_Box;
-    public Collider2D col_Polygon;
+    public CircleCollider2D col_Circle;
+    public BoxCollider2D col_Box;
+    public PolygonCollider2D col_Polygon;
     public int direction;
     public float power_Jump;
     public float power_Speed;

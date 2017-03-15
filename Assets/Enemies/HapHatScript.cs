@@ -4,7 +4,7 @@ using System.Collections;
 public class HapHatScript : MonoBehaviour
 {
     public character HapHat = new character();
-    
+
     [SerializeField]
     float SizeOfTerritory;
 
@@ -28,17 +28,17 @@ public class HapHatScript : MonoBehaviour
     // public Transform playerTarget;
     //public float HapHat;
 
-    character Hero_Test = new character(); 
+    character Hero_Test = new character();
     void Start()
-        {
+    {
         HapHat.rigidbody = gameObject.GetComponent<Rigidbody2D>();
         HapHat.transform = gameObject.GetComponent<Transform>();
         HapHat.animator = gameObject.GetComponent<Animator>();
         HapHat.spr_renderer = gameObject.GetComponent<SpriteRenderer>();
         HapHat.col_Circle = gameObject.GetComponent<CircleCollider2D>();
         HapHat.col_Polygon = gameObject.GetComponent<PolygonCollider2D>();
-      
-       
+
+
 
 
         Hero_Test.col_Box = GameObject.Find("Player").GetComponent<BoxCollider2D>();
@@ -51,12 +51,12 @@ public class HapHatScript : MonoBehaviour
     }
 
     void Move()
-    {     
+    {
         if (HapHat.col_Circle.bounds.Intersects(Hero_Test.col_Box.bounds))
         {
-            if (HapHat.transform.position.x > Hero_Test.transform.position.x )
+            if (HapHat.transform.position.x > Hero_Test.transform.position.x)
             {
-               // Debug.Log("I see you doubly...");
+                // Debug.Log("I see you doubly...");
                 HapHat.animator.SetInteger("Direction", 0);
                 HapHat.rigidbody.velocity = new Vector2(-HapHat.power_Speed, HapHat.rigidbody.velocity.y);
             }
@@ -65,30 +65,18 @@ public class HapHatScript : MonoBehaviour
                 HapHat.animator.SetInteger("Direction", 1);
                 HapHat.rigidbody.velocity = new Vector2(HapHat.power_Speed, HapHat.rigidbody.velocity.y);
             }
-        }     
+        }
     }
- 
+
     void Update()
     {
 
         Move();
-<<<<<<< HEAD:Assets/Enemies/HapHatScript.cs
 
-      
-
-=======
-        while (HapHat.animator.Int("Direction", 1)) {
-
-        }
->>>>>>> parent of b167a1a... NYEH:Assets/Enemies/HapHatScript.cs
-        //gameObject.GetComponent<SpriteRenderer>().flipX = true;
 
 
     }
+    //gameObject.GetComponent<SpriteRenderer>().flipX = true;
+
 
 }
-
-     
-
-
- 
