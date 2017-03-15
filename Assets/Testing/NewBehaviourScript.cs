@@ -6,9 +6,6 @@ using System.Collections;
 
 public class NewBehaviourScript : MonoBehaviour {
 
-
-
-
     [SerializeField]
     double Speed, MaxJumpHeight, TimetoJumpApex, asdf;
 

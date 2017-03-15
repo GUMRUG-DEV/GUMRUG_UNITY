@@ -13,7 +13,7 @@ public class phy_Controller : MonoBehaviour
         phystat_Accl;
 
     //This is where we'll start the raycasts
-    
+
     public Transform[]
         RightRaycastOrigins,
         LeftRaycastOrigins,
@@ -22,7 +22,7 @@ public class phy_Controller : MonoBehaviour
 
 
     //Serializable Variables
-    
+
     public float
         JumpPower,
         SpeedPower,
@@ -32,51 +32,59 @@ public class phy_Controller : MonoBehaviour
 
     public LayerMask CollisionMask;
 
-    
-   public float
-        phystat_Mass;
 
- 
+    public float
+         phystat_Mass;
+
+
+    public float collision;
 
     public test_Character test_One = new test_Character();
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
 
 
-        test_One.col_Box = gameObject.GetComponent<BoxCollider2D>();
 
-	}
+    }
 
     public void VerticalCollisions(ref Vector2 velocity)
     {
         float dirY = Mathf.Sign(velocity.y);
         float rayLength = Mathf.Abs(velocity.y) + SkinWidth;
         
+
         if (dirY == 1)
         {
+            ;
             foreach (Transform point in UpRaycastOrigins)
             {
                 RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.down * SkinWidth * dirY), Vector2.up * dirY, rayLength, CollisionMask);
-
+            
                 if (hit)
                 {
+                    
+                   
                     velocity.y = (hit.distance - SkinWidth) * dirY;
-                    rayLength = (hit.distance - SkinWidth);
+                    Debug.Log((hit.distance - SkinWidth) * dirY);
+                    rayLength = hit.distance;
                 }
             }
         }
         else
         {
+            
             foreach (Transform point in DownRaycastOrigins)
             {
-                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.down * 5 * dirY), Vector2.up * dirY, rayLength, CollisionMask);
-
+                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.down * SkinWidth * dirY), Vector2.up * dirY, rayLength, CollisionMask);
+                
                 if (hit)
                 {
+                                       
                     velocity.y = (hit.distance - SkinWidth) * dirY;
-                    rayLength = (hit.distance - SkinWidth);
+                    Debug.Log((hit.distance - SkinWidth) * dirY);
+                    rayLength = hit.distance;
                 }
             }
         }
@@ -92,12 +100,15 @@ public class phy_Controller : MonoBehaviour
         {
             foreach (Transform point in RightRaycastOrigins)
             {
-                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.left * SkinWidth * dirX), Vector2.up * dirX, rayLength, CollisionMask);
+                
+                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.left * SkinWidth * dirX), Vector2.right * dirX, rayLength, CollisionMask);
+                
 
                 if (hit)
                 {
+                    Debug.Log("Horizontal Hit");
                     velocity.x = (hit.distance - SkinWidth) * dirX;
-                    rayLength = (hit.distance - SkinWidth);
+                    rayLength = hit.distance;
                 }
             }
         }
@@ -105,30 +116,35 @@ public class phy_Controller : MonoBehaviour
         {
             foreach (Transform point in LeftRaycastOrigins)
             {
-                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.left * SkinWidth * dirX), Vector2.up * dirX, rayLength, CollisionMask);
+                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.left * SkinWidth * dirX), Vector2.right * dirX, rayLength, CollisionMask);
+               
 
                 if (hit)
                 {
+                    Debug.Log("Horizontal Hit");
+                    collision = hit.distance - SkinWidth;
                     velocity.x = (hit.distance - SkinWidth) * dirX;
-                    rayLength = (hit.distance - SkinWidth);
+                    rayLength = hit.distance;
                 }
             }
         }
 
     }
 
-    void Move(float force)
+    public void Move()
     {
         
+        gameObject.transform.Translate(phystat_Vel); 
         
+
     }
 
     void debug_Raycasts()
     {
-        
+
         foreach (Transform point in RightRaycastOrigins)
-        {        
-            Debug.DrawRay((point.transform.position + Vector3.left * SkinWidth), Vector2.right * 4, Color.black);           
+        {
+            Debug.DrawRay((point.transform.position + Vector3.left * SkinWidth), Vector2.right * 4, Color.black);
         }
 
         foreach (Transform point in LeftRaycastOrigins)
@@ -148,17 +164,19 @@ public class phy_Controller : MonoBehaviour
     }
 
 
- 
-	
-	// Update is called once per frame
-	void Update ()
+
+
+    // Update is called once per frame
+    void Update()
     {
+        
         debug_Raycasts();
     }
 
     // FixedUpdate is ALWAYS called once every 20 milliseconds 
     void FixedUpdate()
     {
+
 
     }
 }
