@@ -4,9 +4,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class LoadandSave : MonoBehaviour {
-
+public class Saving : MonoBehaviour {
 
     public List<int> list1 = new List<int>();
 
@@ -15,15 +13,17 @@ public class LoadandSave : MonoBehaviour {
     public Vector2 xy = new Vector2();
 
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
     public void Save()
     {
         if (!Directory.Exists(Application.dataPath + "/saves"))
@@ -43,14 +43,14 @@ public class LoadandSave : MonoBehaviour {
     {
         data.list1.Clear();
 
-        foreach(int i in list1)
+        foreach (int i in list1)
         {
             data.list1.Add(i);
 
         }
 
 
-        data.position = Vector2ToSerVector2 (xy);
+        data.position = Vector2ToSerVector2(xy);
 
     }
 
@@ -60,7 +60,7 @@ public class LoadandSave : MonoBehaviour {
         SerVector2 SV2 = new SerVector2();
 
         SV2.x = V2.x;
-        SV2.y = V2.x;
+        SV2.y = V2.y;
 
         return SV2;
     }
