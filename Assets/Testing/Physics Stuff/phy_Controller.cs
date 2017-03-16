@@ -67,7 +67,7 @@ public class phy_Controller : MonoBehaviour
                     
                    
                     velocity.y = (hit.distance - SkinWidth) * dirY;
-                    Debug.Log((hit.distance - SkinWidth) * dirY);
+                   // Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance;
                 }
             }
@@ -83,7 +83,7 @@ public class phy_Controller : MonoBehaviour
                 {
                                        
                     velocity.y = (hit.distance - SkinWidth) * dirY;
-                    Debug.Log((hit.distance - SkinWidth) * dirY);
+                 //   Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance;
                 }
             }
@@ -106,7 +106,7 @@ public class phy_Controller : MonoBehaviour
 
                 if (hit)
                 {
-                    Debug.Log("Horizontal Hit");
+                   // Debug.Log("Horizontal Hit");
                     velocity.x = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
                 }
@@ -121,7 +121,7 @@ public class phy_Controller : MonoBehaviour
 
                 if (hit)
                 {
-                    Debug.Log("Horizontal Hit");
+                 //   Debug.Log("Horizontal Hit");
                     
                     velocity.x = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
