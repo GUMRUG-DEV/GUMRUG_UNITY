@@ -26,7 +26,7 @@ public class NewBehaviourScript : MonoBehaviour {
     bool jumping;
          
 
-    public character hero_Test = new character();
+    public overworld hero_Test = new overworld();
     
     void Start ()
     {

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HapHatScript : MonoBehaviour
 {
-    public character HapHat = new character();
+    public overworld HapHat = new overworld();
     
     [SerializeField]
     float SizeOfTerritory;
@@ -28,7 +28,7 @@ public class HapHatScript : MonoBehaviour
     // public Transform playerTarget;
     //public float HapHat;
 
-    character Hero_Test = new character(); 
+    public overworld Hero_Test = new overworld(); 
     void Start()
         {
         HapHat.rigidbody = gameObject.GetComponent<Rigidbody2D>();
