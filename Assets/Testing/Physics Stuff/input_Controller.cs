@@ -21,13 +21,7 @@ public class input_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-    }
 
-    void FixedUpdate()
-    {
-        phy_Controller.phystat_Vel.y += gravity * Time.deltaTime;
-       
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             phy_Controller.phystat_Vel.x = .25f;
@@ -45,6 +39,14 @@ public class input_Controller : MonoBehaviour
         {
             phy_Controller.phystat_Vel.y = .5f;
         }
+
+    }
+
+    void FixedUpdate()
+    {
+        phy_Controller.phystat_Vel.y += gravity * Time.deltaTime;
+       
+
 
         phy_Controller.VerticalCollisions(ref phy_Controller.phystat_Vel);
         phy_Controller.HorizontalCollisions(ref phy_Controller.phystat_Vel);

@@ -39,12 +39,12 @@ public class phy_Controller : MonoBehaviour
 
     public float collision;
 
-    public test_Character test_One = new test_Character();
+    
 
     // Use this for initialization
     void Start()
     {
-
+        raycasts_UpdateOrigins();
 
 
     }
@@ -60,14 +60,14 @@ public class phy_Controller : MonoBehaviour
             ;
             foreach (Transform point in UpRaycastOrigins)
             {
-                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.down * SkinWidth * dirY), Vector2.up * dirY, rayLength, CollisionMask);
+                RaycastHit2D hit = Physics2D.Raycast(point.transform.position, Vector2.up * dirY, rayLength, CollisionMask);
             
                 if (hit)
                 {
                     
                    
                     velocity.y = (hit.distance - SkinWidth) * dirY;
-                    Debug.Log((hit.distance - SkinWidth) * dirY);
+                   // Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance;
                 }
             }
@@ -77,13 +77,13 @@ public class phy_Controller : MonoBehaviour
             
             foreach (Transform point in DownRaycastOrigins)
             {
-                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.down * SkinWidth * dirY), Vector2.up * dirY, rayLength, CollisionMask);
+                RaycastHit2D hit = Physics2D.Raycast(point.transform.position, Vector2.up * dirY, rayLength, CollisionMask);
                 
                 if (hit)
                 {
                                        
                     velocity.y = (hit.distance - SkinWidth) * dirY;
-                    Debug.Log((hit.distance - SkinWidth) * dirY);
+                 //   Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance;
                 }
             }
@@ -101,12 +101,12 @@ public class phy_Controller : MonoBehaviour
             foreach (Transform point in RightRaycastOrigins)
             {
                 
-                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.left * SkinWidth * dirX), Vector2.right * dirX, rayLength, CollisionMask);
+                RaycastHit2D hit = Physics2D.Raycast(point.transform.position, Vector2.right * dirX, rayLength, CollisionMask);
                 
 
                 if (hit)
                 {
-                    Debug.Log("Horizontal Hit");
+                   // Debug.Log("Horizontal Hit");
                     velocity.x = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
                 }
@@ -116,13 +116,13 @@ public class phy_Controller : MonoBehaviour
         {
             foreach (Transform point in LeftRaycastOrigins)
             {
-                RaycastHit2D hit = Physics2D.Raycast((point.transform.position + Vector3.left * SkinWidth * dirX), Vector2.right * dirX, rayLength, CollisionMask);
+                RaycastHit2D hit = Physics2D.Raycast(point.transform.position, Vector2.right * dirX, rayLength, CollisionMask);
                
 
                 if (hit)
                 {
-                    Debug.Log("Horizontal Hit");
-                    collision = hit.distance - SkinWidth;
+                 //   Debug.Log("Horizontal Hit");
+                    
                     velocity.x = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
                 }
@@ -139,38 +139,74 @@ public class phy_Controller : MonoBehaviour
 
     }
 
-    void debug_Raycasts()
+    private void raycasts_Debug()
     {
 
         foreach (Transform point in RightRaycastOrigins)
         {
-            Debug.DrawRay((point.transform.position + Vector3.left * SkinWidth), Vector2.right * 4, Color.black);
+            Debug.DrawRay(point.transform.position, Vector2.right * 4, Color.black);
         }
 
         foreach (Transform point in LeftRaycastOrigins)
         {
-            Debug.DrawRay((point.transform.position + Vector3.right * SkinWidth), Vector2.left * 4, Color.black);
+            Debug.DrawRay(point.transform.position, Vector2.left * 4, Color.black);
         }
 
         foreach (Transform point in UpRaycastOrigins)
         {
-            Debug.DrawRay((point.transform.position + Vector3.down * SkinWidth), Vector2.up * 4, Color.black); ;
+            Debug.DrawRay(point.transform.position, Vector2.up * 4, Color.black); ;
         }
 
         foreach (Transform point in DownRaycastOrigins)
         {
-            Debug.DrawRay((point.transform.position + Vector3.up * SkinWidth), Vector2.down * 4, Color.black);
+            Debug.DrawRay(point.transform.position, Vector2.down * 4, Color.black);
         }
     }
 
+    private void raycasts_UpdateOrigins()
+    {
+        float insetProportion = (1 - SkinWidth * 2);
 
+        foreach (Transform point in RightRaycastOrigins)
+        {
+            float posX = point.transform.localPosition.x;
+            float posY = point.transform.localPosition.y;
+
+            point.transform.localPosition = new Vector2(posX * insetProportion, posY * insetProportion);
+        }
+
+        foreach (Transform point in LeftRaycastOrigins)
+        {
+            float posX = point.transform.localPosition.x;
+            float posY = point.transform.localPosition.y;
+
+            point.transform.localPosition = new Vector2(posX * insetProportion, posY * insetProportion);
+        }
+
+        foreach (Transform point in UpRaycastOrigins)
+        {
+            float posX = point.transform.localPosition.x;
+            float posY = point.transform.localPosition.y;
+
+            point.transform.localPosition = new Vector2(posX * insetProportion, posY * insetProportion);
+        }
+
+        foreach (Transform point in DownRaycastOrigins)
+        {
+            float posX = point.transform.localPosition.x;
+            float posY = point.transform.localPosition.y;
+
+            point.transform.localPosition = new Vector2(posX * insetProportion, posY * insetProportion);
+        }
+
+    }
 
 
     // Update is called once per frame
     void Update()
     {
         
-        debug_Raycasts();
+        raycasts_Debug();
     }
 
     // FixedUpdate is ALWAYS called once every 20 milliseconds 
