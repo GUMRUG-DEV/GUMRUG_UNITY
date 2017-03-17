@@ -17,6 +17,7 @@ ExportedObj/
 *.pidb
 *.booproj
 *.svd
+*.db
 
 
 # Unity3D generated meta files
@@ -28,4 +29,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-Assets/World Building Items/Thumbs.db
+
