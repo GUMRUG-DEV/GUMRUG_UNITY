@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-[RequireComponent(typeof(BoxCollider2D))]
+
 public class phy_Controller : MonoBehaviour
 {
     //Pure Physics Stats  
@@ -57,7 +57,7 @@ public class phy_Controller : MonoBehaviour
 
         if (dirY == 1)
         {
-            ;
+            
             foreach (Transform point in UpRaycastOrigins)
             {
                 RaycastHit2D hit = Physics2D.Raycast(point.transform.position, Vector2.up * dirY, rayLength, CollisionMask);

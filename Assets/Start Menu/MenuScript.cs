@@ -35,7 +35,7 @@ public class MenuScript : MonoBehaviour {
 
     public void startLevel()
     {
-        SceneManager.LoadScene("First Level");
+        SceneManager.LoadScene("Dream Level");
     }
     public void exitLevel()
     {
