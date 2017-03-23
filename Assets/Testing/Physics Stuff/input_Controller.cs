@@ -8,7 +8,7 @@ public class input_Controller : MonoBehaviour
 
     phy_Controller phy_Controller;
 
-    float gravity = -.5f;
+    float gravity = -4f;
     Vector2 velocity;
 
     // Use this for initialization
@@ -24,11 +24,11 @@ public class input_Controller : MonoBehaviour
 
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            phy_Controller.phystat_Vel.x = .25f;
+            phy_Controller.phystat_Vel.x = 1;
         }
         else if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            phy_Controller.phystat_Vel.x = -.25f;
+            phy_Controller.phystat_Vel.x = -1;
         }
         else
         {
@@ -37,14 +37,14 @@ public class input_Controller : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            phy_Controller.phystat_Vel.y = .5f;
+            phy_Controller.phystat_Vel.y = 1.5f;
         }
 
     }
 
     void FixedUpdate()
     {
-        phy_Controller.phystat_Vel.y += gravity * Time.deltaTime;
+       phy_Controller.phystat_Vel.y += gravity * Time.deltaTime;
        
 
 
