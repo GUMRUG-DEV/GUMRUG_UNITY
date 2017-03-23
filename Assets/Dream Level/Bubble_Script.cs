@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Bubble_Script : MonoBehaviour {
 
-    public character Bubble = new character();
-    public character Wall = new character();
-    public character Wall2 = new character();
-    public character Wall3 = new character();
-    public character Wall4 = new character();
+    public overworld Bubble = new overworld();
+    public overworld Wall = new overworld();
+    public overworld Wall2 = new overworld();
+    public overworld Wall3 = new overworld();
+    public overworld Wall4 = new overworld();
 
     
 
