@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SnowFlakeScript : MonoBehaviour {
 
-    public character Snowflake = new character();
-    public character Wall = new character();
+    public overworld Snowflake = new overworld();
+    public overworld Wall = new overworld();
     public Vector2 velocity;
 
 	// Use this for initialization
