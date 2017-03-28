@@ -201,6 +201,15 @@ public class phy_Controller : MonoBehaviour
 
     }
 
+    void GetPosition()
+    {
+        Transform myTransform = gameObject.GetComponent<Transform>();
+        
+        
+
+    }
+
+     
 
     // Update is called once per frame
     void Update()
@@ -215,4 +224,7 @@ public class phy_Controller : MonoBehaviour
 
 
     }
+
+
+
 }
