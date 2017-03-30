@@ -44,27 +44,45 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
+  - name: Super Background
     uniqueID: 2490716555
     locked: 0
-  - name: Above Ground
+  - name: Background
     uniqueID: 3680082931
     locked: 0
-  - name: '....'
+  - name: Above Background
     uniqueID: 3994312331
     locked: 0
-  - name: New Layer
+  - name: Things
     uniqueID: 879082075
     locked: 0
-  - name: New Layer
+  - name: Things above things
     uniqueID: 1264861103
     locked: 0
-  - name: New Layer
+  - name: Slightly in the middle
     uniqueID: 3322179221
     locked: 0
-  - name: New Layer
+  - name: Middle it looks like
     uniqueID: 1177039843
     locked: 0
-  - name: Player
+  - name: Eck
     uniqueID: 3378686545
+    locked: 0
+  - name: Kachow
+    uniqueID: 2717383863
+    locked: 0
+  - name: Behind Player
+    uniqueID: 4013059501
+    locked: 0
+  - name: Player
+    uniqueID: 829260625
+    locked: 0
+  - name: Gorground 1
+    uniqueID: 2606152041
+    locked: 0
+  - name: Foreground 2
+    uniqueID: 2404277981
+    locked: 0
+  - name: Frontmost
+    uniqueID: 2104357937
     locked: 0
