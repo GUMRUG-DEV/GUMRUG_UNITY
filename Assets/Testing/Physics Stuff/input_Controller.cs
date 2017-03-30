@@ -8,8 +8,6 @@ public class input_Controller : MonoBehaviour
 
     phy_Controller phy_Controller;
 
-    float gravity = -.5f;
-    Vector2 velocity;
 
     // Use this for initialization
     void Start()
@@ -22,36 +20,31 @@ public class input_Controller : MonoBehaviour
     void Update()
     {
 
+        //Basic WASD Input
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            phy_Controller.phystat_Vel.x = .25f;
+            phy_Controller.phystat_XvelSetPoint = .25f;
         }
         else if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            phy_Controller.phystat_Vel.x = -.25f;
+            phy_Controller.phystat_XvelSetPoint = -.25f;
         }
         else
         {
-            phy_Controller.phystat_Vel.x = 0;
+            phy_Controller.phystat_XvelSetPoint = 0;
         }
 
+
+        //Jumping
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            phy_Controller.phystat_Vel.y = .5f;
+            Debug.Log("hi");
+            phy_Controller.phystat_YvelSetPoint = 1f;
         }
 
+
+
     }
 
-    void FixedUpdate()
-    {
-        phy_Controller.phystat_Vel.y += gravity * Time.deltaTime;
-       
 
-
-        phy_Controller.VerticalCollisions(ref phy_Controller.phystat_Vel);
-        phy_Controller.HorizontalCollisions(ref phy_Controller.phystat_Vel);
-
-        Debug.Log(phy_Controller.phystat_Vel);
-        phy_Controller.Move();
-    }
 }
