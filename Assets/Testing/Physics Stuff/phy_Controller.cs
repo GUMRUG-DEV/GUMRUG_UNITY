@@ -10,16 +10,21 @@ public class phy_Controller : MonoBehaviour
 {
     //Pure Physics Stats  
     public Vector2
-        phystat_initVel,
-        phystat_Accl;
+        initialVelocity,
+        Accl;
 
+    public bool hasGrav;
 
-    private Vector2
-        phystat_lastPos,
-        phystat_currentPos;
+    public float
+        deltaX,
+        deltaY;
 
-    public float phystat_XvelSetPoint;
-    public float phystat_YvelSetPoint;
+    public Vector2
+        lastPos,
+        currentPos;
+
+    public float XplayerMovement;
+    public float YplayerMovement;
 
     //This is where we'll start the raycasts
 
@@ -38,19 +43,19 @@ public class phy_Controller : MonoBehaviour
         SkinWidth,
         Gravity;
 
-
+    public float playerSpeed;
 
     public LayerMask CollisionMask;
 
+    private GameObject attatched = null;
+
+
 
     public float
-         phystat_Mass;
+         Mass;
 
 
     public float collision;
-
-    
-
 
     
 
@@ -63,17 +68,22 @@ public class phy_Controller : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        phystat_currentPos = gameObject.transform.position;
-        phystat_lastPos = phystat_currentPos - phystat_initVel;
+        currentPos = gameObject.transform.localPosition;
+        lastPos = currentPos - initialVelocity;
 
         raycasts_UpdateOrigins();
 
+        if (hasGrav)
+        {
+            Accl.y = Gravity;
+        }
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Accelerate(0, Gravity);
         
         raycasts_Debug();
     }
@@ -82,10 +92,10 @@ public class phy_Controller : MonoBehaviour
     void FixedUpdate()
     {     
         Move();
-        X_AccelerateTo();
-        Y_AccelerateTo();
+       // CalcInput();
+    //    X_AccelerateTo();
+     //   Y_AccelerateTo();
     }
-
 
 
 
@@ -97,56 +107,70 @@ public class phy_Controller : MonoBehaviour
  
     public void addForce(float x_Force, float y_Force) //Adds a constant force that the object will experience
     {
-        phystat_Accl += new Vector2(x_Force/phystat_Mass, y_Force/phystat_Mass);
+        Accl += new Vector2(x_Force/Mass, y_Force/Mass);
+    }
+    /*
+    public void X_AccelerateTo(float XSetPoint) //Instantly accelerates the gameobject to a speed (accelerates over a single fixed frame)
+    {
+
+        
+        if ((currentPos.x - lastPos.x) < XSetPoint)  
+        {
+            Debug.Log("hi.");
+            float acclNeeded = Accl.x - ((XSetPoint - (currentPos.x - lastPos.x)) / (Time.fixedDeltaTime * Time.fixedDeltaTime));
+            float deltaX = (currentPos.x - lastPos.x) + (Accl.x * Time.fixedDeltaTime * Time.fixedDeltaTime);
+            gameObject.transform.Translate(new Vector2(deltaX, 0));
+        }
+
+
+
+
     }
 
-    public void X_AccelerateTo() //Instantly accelerates the gameobject to a speed (over a single fixed frame)
+    public void Y_AccelerateTo(float YSetPoint) //Instantly accelerates the gameobject to a speed (accelerates over a single fixed frame)
     {
-        if ((phystat_currentPos.x - phystat_lastPos.x) != phystat_XvelSetPoint)
+        if ((currentPos.y - lastPos.y) != YSetPoint)
         {
-            
-            phystat_Accl.x = (phystat_XvelSetPoint - (phystat_currentPos.x - phystat_lastPos.x))/ (Time.fixedDeltaTime * Time.fixedDeltaTime);
-            
-        }
-        else
-        {
-            phystat_Accl.x = 0;
-        }
-    }
+            float acclNeeded = (Accl.y - (YSetPoint - (currentPos.y - lastPos.y)) / (Time.fixedDeltaTime * Time.fixedDeltaTime));
+            float deltaY = (currentPos.y - lastPos.y) + (Accl.y * Time.fixedDeltaTime * Time.fixedDeltaTime);
+            gameObject.transform.Translate(new Vector2(0, deltaY));
 
-    public void Y_AccelerateTo() //Instantly accelerates the gameobject to a speed (over a single fixed frame)
-    {
-        if ((phystat_currentPos.y - phystat_lastPos.y) < phystat_YvelSetPoint)
-        {
-            float accl;
-            accl = (phystat_YvelSetPoint - (phystat_currentPos.y - phystat_lastPos.y)) / (Time.fixedDeltaTime * Time.fixedDeltaTime);
-
-            gameObject.transform.Translate(new Vector2(0, accl * Time.fixedDeltaTime * Time.fixedDeltaTime));
         }
         
     }
+    */
 
     public void Accelerate(float x_Accl, float y_Accl) //Adds an acceleration to an object
     {
-        phystat_Accl += new Vector2(x_Accl, y_Accl);
+        Accl += new Vector2(x_Accl, y_Accl);
     }  
 
     public void Move()
     {
 
-        float phystat_deltaX;
-        float phystat_deltaY;
 
-        phystat_deltaX = (phystat_currentPos.x - phystat_lastPos.x) + (phystat_Accl.x * Time.fixedDeltaTime * Time.fixedDeltaTime);
-        phystat_deltaY = (phystat_currentPos.y - phystat_lastPos.y) + (phystat_Accl.y * Time.fixedDeltaTime * Time.fixedDeltaTime);
+        deltaX = (currentPos.x - lastPos.x) + (Accl.x * Time.fixedDeltaTime * Time.fixedDeltaTime);
+        deltaY = (currentPos.y - lastPos.y) + (Accl.y * Time.fixedDeltaTime * Time.fixedDeltaTime);
 
-        VerticalCollisions(ref phystat_deltaY); //Pasing a ref to a function passes the variable rather than a copy of it
-        HorizontalCollisions(ref phystat_deltaX);
+        VerticalCollisions(ref deltaY); //Pasing a ref to a function passes the variable rather than a copy of it
+        HorizontalCollisions(ref deltaX);
         
-        gameObject.transform.Translate(new Vector2(phystat_deltaX, phystat_deltaY));
-        phystat_lastPos = phystat_currentPos; //After updating the current position variable becomes the last position.
-        phystat_currentPos = gameObject.transform.position; //Update the position
+        gameObject.transform.Translate(new Vector2(deltaX, deltaY));
+        lastPos = currentPos; //After updating the current position variable becomes the last position.
+        currentPos = gameObject.transform.localPosition; //Update the position
         
+
+    }
+
+    public void CalcInput()
+    {
+        float run = SpeedPower;
+
+        HorizontalCollisions(ref run);
+
+        currentPos.x += run;
+        lastPos.x += run;
+        gameObject.transform.Translate(new Vector2(run, 0));
 
     }
 
@@ -155,7 +179,7 @@ public class phy_Controller : MonoBehaviour
     public void VerticalCollisions(ref float deltaY)
     {
         float dirY = Mathf.Sign(deltaY);
-        float rayLength = Mathf.Abs(deltaY) + SkinWidth * 2;
+        float rayLength = Mathf.Abs(deltaY) + SkinWidth;
         
 
         if (dirY == 1)
@@ -172,6 +196,16 @@ public class phy_Controller : MonoBehaviour
                     
                    //The new velocity is equal to the distance of the hit minus the skinwidth times the direction
                     deltaY = (hit.distance - SkinWidth) * dirY;
+
+                    
+
+
+                        gameObject.transform.parent = hit.transform;
+                        attatched = hit.transform.gameObject;
+  
+
+                    
+
                    // Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance; //The new shoot distance must be set equal to the hit distance
                     

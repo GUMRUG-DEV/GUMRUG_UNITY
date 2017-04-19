@@ -461,8 +461,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2007f744fec05418c12744759b5c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phystat_Vel: {x: 0.1, y: 0}
-  phystat_Accl: {x: 0, y: 0}
+  initialVelocity: {x: 0.1, y: 0}
+  Accl: {x: 0, y: 0}
+  hasGrav: 1
+  deltaX: 0
+  deltaY: 0
+  lastPos: {x: 0, y: 0}
+  currentPos: {x: 0, y: 0}
+  XplayerMovement: 0
+  YplayerMovement: 0
   RightRaycastOrigins:
   - {fileID: 148093691}
   - {fileID: 1448794328}
@@ -480,12 +487,14 @@ MonoBehaviour:
   - {fileID: 1879014379}
   - {fileID: 808993}
   JumpPower: 0
-  SpeedPower: 0
+  SpeedPower: 1
   SkinWidth: 0.03
+  Gravity: -9.8
+  playerSpeed: 0
   CollisionMask:
     serializedVersion: 2
     m_Bits: 32768
-  phystat_Mass: 0
+  Mass: 0
   collision: 0
 --- !u!61 &594759879
 BoxCollider2D:
@@ -546,7 +555,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 594759876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -90.81, y: 2.11, z: 0}
+  m_LocalPosition: {x: -116.4, y: 4.7, z: 0}
   m_LocalScale: {x: 1.9, y: 1.9, z: 1}
   m_Children:
   - {fileID: 2108154651}
