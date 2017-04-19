@@ -22,7 +22,7 @@ public class input_Controller : MonoBehaviour
         //Debug.Log(-(phy_Controller.lastPos - phy_Controller.currentPos));
 
         //Basic WASD Input
-      /*  if (Input.GetAxisRaw("Horizontal") > 0)
+        if (Input.GetAxisRaw("Horizontal") > 0)
         {
             normal = false;
             phy_Controller.playerSpeed = 1;
@@ -32,7 +32,8 @@ public class input_Controller : MonoBehaviour
         {
             normal = false;
             // phy_Controller.X_AccelerateTo(-phy_Controller.SpeedPower);
-            phy_Controller.playerSpeed = -1;
+            phy_Controller.lastPos = phy_Controller.attatched.GetComponent<phy_Controller>().lastPos;
+            phy_Controller.currentPos = phy_Controller.attatched.GetComponent<phy_Controller>().currentPos;
         }
         else if (Input.GetAxisRaw("Horizontal") == 0)
         {
@@ -46,7 +47,7 @@ public class input_Controller : MonoBehaviour
         }
         
   
-       */
+       
 
 
         

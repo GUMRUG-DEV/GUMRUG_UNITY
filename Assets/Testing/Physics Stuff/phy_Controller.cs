@@ -47,7 +47,7 @@ public class phy_Controller : MonoBehaviour
 
     public LayerMask CollisionMask;
 
-    private GameObject attatched = null;
+    public GameObject attatched = null;
 
 
 
@@ -92,7 +92,7 @@ public class phy_Controller : MonoBehaviour
     void FixedUpdate()
     {     
         Move();
-       // CalcInput();
+    //    CalcInput();
     //    X_AccelerateTo();
      //   Y_AccelerateTo();
     }
@@ -197,14 +197,7 @@ public class phy_Controller : MonoBehaviour
                    //The new velocity is equal to the distance of the hit minus the skinwidth times the direction
                     deltaY = (hit.distance - SkinWidth) * dirY;
 
-                    
-
-
-                        gameObject.transform.parent = hit.transform;
-                        attatched = hit.transform.gameObject;
-  
-
-                    
+                   
 
                    // Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance; //The new shoot distance must be set equal to the hit distance
@@ -223,7 +216,17 @@ public class phy_Controller : MonoBehaviour
                 {
                                        
                     deltaY = (hit.distance - SkinWidth) * dirY;
-                 //   Debug.Log((hit.distance - SkinWidth) * dirY);
+                    Debug.Log("Hi");
+
+                    if (Mathf.Abs(deltaY)< .000001)
+                    {
+
+                    }
+                    gameObject.transform.parent = hit.transform;
+                    attatched = hit.transform.gameObject;
+
+
+                    //   Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance;
                    
                 }
