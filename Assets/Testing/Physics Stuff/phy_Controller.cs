@@ -13,7 +13,9 @@ public class phy_Controller : MonoBehaviour
         initialVelocity,
         Accl;
 
-    public bool hasGrav;
+    public bool
+        hasGravity,
+        isPlayer;
 
     public float
         deltaX,
@@ -73,7 +75,7 @@ public class phy_Controller : MonoBehaviour
 
         raycasts_UpdateOrigins();
 
-        if (hasGrav)
+        if (hasGravity)
         {
             Accl.y = Gravity;
         }
@@ -92,7 +94,7 @@ public class phy_Controller : MonoBehaviour
     void FixedUpdate()
     {     
         Move();
-    //    CalcInput();
+        CalcInput();
     //    X_AccelerateTo();
      //   Y_AccelerateTo();
     }
@@ -157,14 +159,14 @@ public class phy_Controller : MonoBehaviour
         
         gameObject.transform.Translate(new Vector2(deltaX, deltaY));
         lastPos = currentPos; //After updating the current position variable becomes the last position.
-        currentPos = gameObject.transform.localPosition; //Update the position
+        currentPos = gameObject.transform.position; //Update the position
         
 
     }
 
     public void CalcInput()
     {
-        float run = SpeedPower;
+        float run = SpeedPower * playerSpeed;
 
         HorizontalCollisions(ref run);
 
@@ -211,24 +213,29 @@ public class phy_Controller : MonoBehaviour
             foreach (Transform point in DownRaycastOrigins)
             {
                 RaycastHit2D hit = Physics2D.Raycast(point.transform.position, Vector2.up * dirY, rayLength, CollisionMask);
-                
+
                 if (hit)
                 {
-                                       
-                    deltaY = (hit.distance - SkinWidth) * dirY;
-                    Debug.Log("Hi");
 
-                    if (Mathf.Abs(deltaY)< .000001)
+                    deltaY = (hit.distance - SkinWidth) * dirY;
+
+
+                    if (Mathf.Abs(deltaY) < .000001)
                     {
+                        if (attatched != hit.transform.gameObject && isPlayer)
+                        {
+
+                            attatched = hit.transform.gameObject;
+                            deltaX += gameObject.GetComponent<phy_Controller>().deltaX;
+
+                        }
+                        
+
 
                     }
-                    gameObject.transform.parent = hit.transform;
-                    attatched = hit.transform.gameObject;
-
-
+  
                     //   Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance;
-                   
                 }
             }
         }
