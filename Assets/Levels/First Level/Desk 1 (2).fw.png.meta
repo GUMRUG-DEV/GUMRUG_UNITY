@@ -1,15 +1,10 @@
 fileFormatVersion: 2
-guid: 5ff3c97315ef0a4458a628c808a3c5ed
-timeCreated: 1490367779
+guid: a936aa033679f5c498526c304d103030
+timeCreated: 1490364587
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Gum.fw_0
-    21300002: Gum.fw_1
-    21300004: Gum.fw_2
-    21300006: Gum.fw_3
-    21300008: Gum.fw_4
-    21300010: Gum.fw_5
+    21300000: Desk 1 (2).fw_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -76,80 +71,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gum.fw_0
+      name: Desk 1 (2).fw_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 528
-        width: 144
-        height: 208
+        x: 32
+        y: 0
+        width: 384
+        height: 232
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Gum.fw_1
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 528
-        width: 144
-        height: 208
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Gum.fw_2
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 272
-        width: 144
-        height: 208
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Gum.fw_3
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 272
-        width: 144
-        height: 208
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Gum.fw_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 144
-        height: 208
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Gum.fw_5
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 16
-        width: 144
-        height: 208
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

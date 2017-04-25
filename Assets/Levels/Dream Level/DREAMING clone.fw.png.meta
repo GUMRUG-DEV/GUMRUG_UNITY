@@ -1,15 +1,17 @@
 fileFormatVersion: 2
-guid: 5ff3c97315ef0a4458a628c808a3c5ed
-timeCreated: 1490367779
+guid: fafe3e1dad7f3c441919f189434f5ae7
+timeCreated: 1489075375
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Gum.fw_0
-    21300002: Gum.fw_1
-    21300004: Gum.fw_2
-    21300006: Gum.fw_3
-    21300008: Gum.fw_4
-    21300010: Gum.fw_5
+    21300000: DREAMING clone.fw_0
+    21300002: DREAMING clone.fw_1
+    21300004: DREAMING clone.fw_2
+    21300006: DREAMING clone.fw_3
+    21300008: DREAMING clone.fw_4
+    21300010: DREAMING clone.fw_5
+    21300012: DREAMING clone.fw_6
+    21300014: DREAMING clone.fw_7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -76,80 +78,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gum.fw_0
+      name: DREAMING clone.fw_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 528
-        width: 144
-        height: 208
+        x: 176
+        y: 1288
+        width: 152
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Gum.fw_1
+      name: DREAMING clone.fw_1
       rect:
         serializedVersion: 2
-        x: 272
-        y: 528
-        width: 144
-        height: 208
+        x: 680
+        y: 1280
+        width: 168
+        height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Gum.fw_2
+      name: DREAMING clone.fw_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 272
-        width: 144
-        height: 208
+        x: 1184
+        y: 1272
+        width: 184
+        height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Gum.fw_3
+      name: DREAMING clone.fw_3
       rect:
         serializedVersion: 2
-        x: 272
-        y: 272
-        width: 144
-        height: 208
+        x: 152
+        y: 752
+        width: 200
+        height: 88
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Gum.fw_4
+      name: DREAMING clone.fw_4
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 144
-        height: 208
+        x: 656
+        y: 744
+        width: 216
+        height: 104
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Gum.fw_5
+      name: DREAMING clone.fw_5
       rect:
         serializedVersion: 2
-        x: 272
-        y: 16
-        width: 144
-        height: 208
+        x: 1176
+        y: 752
+        width: 200
+        height: 88
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DREAMING clone.fw_6
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 248
+        width: 184
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DREAMING clone.fw_7
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 256
+        width: 168
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
