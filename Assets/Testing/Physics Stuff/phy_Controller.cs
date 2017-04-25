@@ -182,34 +182,34 @@ public class phy_Controller : MonoBehaviour
     {
         float dirY = Mathf.Sign(deltaY);
         float rayLength = Mathf.Abs(deltaY) + SkinWidth;
-        
+
 
         if (dirY == 1)
         {
-            
+
             foreach (Transform point in UpRaycastOrigins) //For each critical point in the set up upward shooting rays
             {
                 //Shoot a ray out and store any collider collisions into "hit"
                 RaycastHit2D hit = Physics2D.Raycast(point.transform.position, Vector2.up * dirY, rayLength, CollisionMask);
-            
+
                 //If we have hit something:
                 if (hit)
                 {
-                    
-                   //The new velocity is equal to the distance of the hit minus the skinwidth times the direction
+
+                    //The new velocity is equal to the distance of the hit minus the skinwidth times the direction
                     deltaY = (hit.distance - SkinWidth) * dirY;
 
-                   
 
-                   // Debug.Log((hit.distance - SkinWidth) * dirY);
+
+                    // Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance; //The new shoot distance must be set equal to the hit distance
-                    
+
                 }
             }
         }
         else
         {
-            
+
             foreach (Transform point in DownRaycastOrigins)
             {
                 RaycastHit2D hit = Physics2D.Raycast(point.transform.position, Vector2.up * dirY, rayLength, CollisionMask);
@@ -220,26 +220,24 @@ public class phy_Controller : MonoBehaviour
                     deltaY = (hit.distance - SkinWidth) * dirY;
 
 
-                    if (Mathf.Abs(deltaY) < .000001)
+
                     {
-                        if (attatched != hit.transform.gameObject && isPlayer)
+                        if (Mathf.Abs(deltaY) < .000001 && attatched != hit.transform.gameObject && isPlayer)
                         {
 
                             attatched = hit.transform.gameObject;
-                            deltaX += gameObject.GetComponent<phy_Controller>().deltaX;
+                            Debug.Log(lastPos.x);
+                            deltaX += hit.transform.gameObject.GetComponent<phy_Controller>().deltaX;
 
                         }
-                        
 
 
+                        //   Debug.Log((hit.distance - SkinWidth) * dirY);
+                        rayLength = hit.distance;
                     }
-  
-                    //   Debug.Log((hit.distance - SkinWidth) * dirY);
-                    rayLength = hit.distance;
                 }
             }
         }
-
     }
 
     public void HorizontalCollisions(ref float deltaX)

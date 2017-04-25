@@ -36,28 +36,31 @@ public class input_Controller : MonoBehaviour
             {
                 phy_Controller.playerSpeed = -1;
             }
-            else if (input == 0)
+            else
             {
+                Debug.Log("Not moving.");
                 phy_Controller.playerSpeed = 0;
 
                 //phy_Controller.lastPos.x = phy_Controller.attatched.GetComponent<phy_Controller>().lastPos.x;
                 // phy_Controller.currentPos.x = phy_Controller.attatched.GetComponent<phy_Controller>().currentPos.x;
-                if (phy_Controller.attatched = null)
+                if (!phy_Controller.attatched)
                 {
                     phy_Controller.lastPos.x = phy_Controller.currentPos.x;
                 }
-                else if (phy_Controller.attatched != null)
+                else
                 {
+                    Debug.Log("hi");
+                    Debug.Log(phy_Controller.lastPos.x);
                     phy_Controller.lastPos.x = phy_Controller.currentPos.x - phy_Controller.attatched.GetComponent<phy_Controller>().deltaX;
+                    Debug.Log(phy_Controller.lastPos.x);
                 }
                 
-
-
-
                 //  phy_Controller.X_AccelerateTo(0);
             }
         }
-        Debug.Log(input);
+
+
+        //Debug.Log(input);
         lastInput = input;
        
 
