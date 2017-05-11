@@ -13,5 +13,9 @@ EditorBuildSettings:
     path: Assets/First Level/First level.unity
   - enabled: 1
     path: Assets/Start Menu/Start menu.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Dream Level/Dream Level.unity
+  - enabled: 1
+    path: Assets/Levels/First Level/FirstLevel - OutsideF.unity
+  - enabled: 1
+    path: Assets/Levels/First Level/First Level-House.unity

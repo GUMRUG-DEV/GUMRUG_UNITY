@@ -7,9 +7,8 @@ public class input_Controller : MonoBehaviour
 {
 
     phy_Controller phy_Controller;
-
-    float gravity = -4f;
-    Vector2 velocity;
+    int input;
+    int lastInput;
 
     // Use this for initialization
     void Start()
@@ -21,37 +20,102 @@ public class input_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         input = (int)Input.GetAxisRaw("Horizontal");
+        //Debug.Log(-(phy_Controller.lastPos - phy_Controller.currentPos));
 
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        //Basic WASD Input
+
+        if (input != lastInput)
         {
-            phy_Controller.phystat_Vel.x = 1;
-        }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            phy_Controller.phystat_Vel.x = -1;
-        }
-        else
-        {
-            phy_Controller.phystat_Vel.x = 0;
+            if (input > 0)
+            {
+                phy_Controller.playerSpeed = 1;
+                // phy_Controller.X_AccelerateTo(phy_Controller.SpeedPowerwerre);
+            }
+            else if (input < 0)
+            {
+                phy_Controller.playerSpeed = -1;
+            }
+            else
+            {
+                Debug.Log("Not moving.");
+                phy_Controller.playerSpeed = 0;
+
+                //phy_Controller.lastPos.x = phy_Controller.attatched.GetComponent<phy_Controller>().lastPos.x;
+                // phy_Controller.currentPos.x = phy_Controller.attatched.GetComponent<phy_Controller>().currentPos.x;
+                if (!phy_Controller.attatched)
+                {
+                    phy_Controller.lastPos.x = phy_Controller.currentPos.x;
+                }
+                else
+                {
+                    Debug.Log("hi");
+                    Debug.Log(phy_Controller.lastPos.x);
+                    phy_Controller.lastPos.x = phy_Controller.currentPos.x - phy_Controller.attatched.GetComponent<phy_Controller>().deltaX;
+                    Debug.Log(phy_Controller.lastPos.x);
+                }
+                
+                //  phy_Controller.X_AccelerateTo(0);
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            phy_Controller.phystat_Vel.y = 1.5f;
-        }
 
-    }
-
-    void FixedUpdate()
-    {
-       phy_Controller.phystat_Vel.y += gravity * Time.deltaTime;
+        //Debug.Log(input);
+        lastInput = input;
        
 
 
-        phy_Controller.VerticalCollisions(ref phy_Controller.phystat_Vel);
-        phy_Controller.HorizontalCollisions(ref phy_Controller.phystat_Vel);
+        
+        /*   move_Horizontal(phy_Controller.SpeedPower);
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            phy_Controller.XplayerMovement = -.25f;
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            phy_Controller.XplayerMovement = .25f;
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            phy_Controller.XplayerMovement = .25f;
+        }
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            phy_Controller.XplayerMovement = -.25f;
+        }
+        else
+        {
+            phy_Controller.XplayerMovement = 0;
+        }
+        */
+        
 
-        Debug.Log(phy_Controller.phystat_Vel);
-        phy_Controller.Move();
+
+        Debug.Log(phy_Controller.XplayerMovement);
+
+        //Jumping
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("hi");
+            phy_Controller.YplayerMovement = .01f;
+        }
+        
+
+
+
     }
+
+    void move_Horizontal(float speed)
+    {
+
+    }
+
+
+
+    void move_Jump()
+    {
+
+    }
+
+
 }
