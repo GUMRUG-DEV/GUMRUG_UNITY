@@ -270,29 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2007f744fec05418c12744759b5c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialVelocity: {x: 0, y: 0}
-  Accl: {x: 0, y: 0}
-  hasGravity: 0
-  isPlayer: 0
-  deltaX: 0
-  deltaY: 0
-  lastPos: {x: 0, y: 0}
-  currentPos: {x: 0, y: 0}
-  XplayerMovement: 0
-  YplayerMovement: 0
-  RightRaycastOrigins: []
-  LeftRaycastOrigins: []
-  UpRaycastOrigins: []
-  DownRaycastOrigins: []
-  JumpPower: 0
-  SpeedPower: 0
-  SkinWidth: 0
-  Gravity: 0
-  playerSpeed: 0
-  CollisionMask: {}
-  attatched: {fileID: 0}
-  Mass: 0
-  collision: 0
 --- !u!1 &331248776
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,9 +441,9 @@ GameObject:
   - component: {fileID: 594759881}
   - component: {fileID: 594759880}
   - component: {fileID: 594759879}
+  - component: {fileID: 594759883}
   - component: {fileID: 594759878}
   - component: {fileID: 594759877}
-  - component: {fileID: 594759883}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -482,12 +459,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 594759876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad1d52a6b81b6284f86adc3c0142ddc9, type: 3}
+  m_Script: {fileID: 11500000, guid: d300a71757c1ec2468a6f33fcd15bc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phy_Controller: {fileID: 0}
-  input: 0
-  lastInput: 0
 --- !u!114 &594759878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +470,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 594759876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e2007f744fec05418c12744759b5c8d, type: 3}
+  m_Script: {fileID: 11500000, guid: cf6b6f8f73dba2946b0804bf86cf3f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialVelocity: {x: 0, y: 0}
@@ -527,10 +501,12 @@ MonoBehaviour:
   - {fileID: 808993}
   JumpPower: 0
   SpeedPower: 1
-  SkinWidth: 0.03
-  Gravity: -9.8
+  SkinWidth: 0.015
+  Gravity: -60
   playerSpeed: 0
-  CollisionMask: {}
+  CollisionMask:
+    serializedVersion: 2
+    m_Bits: 32768
   attatched: {fileID: 0}
   Mass: 0
   collision: 0
@@ -911,6 +887,7 @@ GameObject:
   - component: {fileID: 845629045}
   - component: {fileID: 845629044}
   - component: {fileID: 845629043}
+  - component: {fileID: 845629047}
   m_Layer: 15
   m_Name: Quad (10)
   m_TagString: Ground
@@ -983,6 +960,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &845629047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 845629042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6b6f8f73dba2946b0804bf86cf3f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialVelocity: {x: 0, y: 0}
+  Accl: {x: 0, y: 0}
+  hasGravity: 0
+  isPlayer: 0
+  deltaX: 0
+  deltaY: 0
+  lastPos: {x: 0, y: 0}
+  currentPos: {x: 0, y: 0}
+  XplayerMovement: 0
+  YplayerMovement: 0
+  RightRaycastOrigins: []
+  LeftRaycastOrigins: []
+  UpRaycastOrigins: []
+  DownRaycastOrigins: []
+  JumpPower: 0
+  SpeedPower: 0
+  SkinWidth: 0
+  Gravity: 0
+  playerSpeed: 0
+  CollisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attatched: {fileID: 0}
+  Mass: 0
+  collision: 0
 --- !u!1 &893334947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,10 +1557,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1290379771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e2007f744fec05418c12744759b5c8d, type: 3}
+  m_Script: {fileID: 11500000, guid: cf6b6f8f73dba2946b0804bf86cf3f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialVelocity: {x: -0.05, y: 0}
+  initialVelocity: {x: 0, y: 0}
   Accl: {x: 0, y: 0}
   hasGravity: 0
   isPlayer: 0
@@ -1566,7 +1579,9 @@ MonoBehaviour:
   SkinWidth: 0
   Gravity: 0
   playerSpeed: 0
-  CollisionMask: {}
+  CollisionMask:
+    serializedVersion: 2
+    m_Bits: 0
   attatched: {fileID: 0}
   Mass: 0
   collision: 0

@@ -11,15 +11,23 @@ public class phy_Controller : MonoBehaviour
     //Pure Physics Stats  
     public Vector2
         initialVelocity,
-        Accl;
+        transAccl;
+
+    public float
+        angleAccl;
 
     public bool
         hasGravity,
         isPlayer;
 
     public float
+        deltaTheta,
         deltaX,
         deltaY;
+
+    public float
+        lastAngle,
+        currentAngle;
 
     public Vector2
         lastPos,
@@ -77,7 +85,7 @@ public class phy_Controller : MonoBehaviour
 
         if (hasGravity)
         {
-            Accl.y = Gravity;
+            transAccl.y = Gravity;
         }
 
         
@@ -109,7 +117,7 @@ public class phy_Controller : MonoBehaviour
  
     public void addForce(float x_Force, float y_Force) //Adds a constant force that the object will experience
     {
-        Accl += new Vector2(x_Force/Mass, y_Force/Mass);
+        transAccl += new Vector2(x_Force/Mass, y_Force/Mass);
     }
     /*
     public void X_AccelerateTo(float XSetPoint) //Instantly accelerates the gameobject to a speed (accelerates over a single fixed frame)
@@ -119,8 +127,8 @@ public class phy_Controller : MonoBehaviour
         if ((currentPos.x - lastPos.x) < XSetPoint)  
         {
             Debug.Log("hi.");
-            float acclNeeded = Accl.x - ((XSetPoint - (currentPos.x - lastPos.x)) / (Time.fixedDeltaTime * Time.fixedDeltaTime));
-            float deltaX = (currentPos.x - lastPos.x) + (Accl.x * Time.fixedDeltaTime * Time.fixedDeltaTime);
+            float acclNeeded = transAccl.x - ((XSetPoint - (currentPos.x - lastPos.x)) / (Time.fixedDeltaTime * Time.fixedDeltaTime));
+            float deltaX = (currentPos.x - lastPos.x) + (transAccl.x * Time.fixedDeltaTime * Time.fixedDeltaTime);
             gameObject.transform.Translate(new Vector2(deltaX, 0));
         }
 
@@ -133,8 +141,8 @@ public class phy_Controller : MonoBehaviour
     {
         if ((currentPos.y - lastPos.y) != YSetPoint)
         {
-            float acclNeeded = (Accl.y - (YSetPoint - (currentPos.y - lastPos.y)) / (Time.fixedDeltaTime * Time.fixedDeltaTime));
-            float deltaY = (currentPos.y - lastPos.y) + (Accl.y * Time.fixedDeltaTime * Time.fixedDeltaTime);
+            float acclNeeded = (transAccl.y - (YSetPoint - (currentPos.y - lastPos.y)) / (Time.fixedDeltaTime * Time.fixedDeltaTime));
+            float deltaY = (currentPos.y - lastPos.y) + (transAccl.y * Time.fixedDeltaTime * Time.fixedDeltaTime);
             gameObject.transform.Translate(new Vector2(0, deltaY));
 
         }
@@ -144,15 +152,22 @@ public class phy_Controller : MonoBehaviour
 
     public void Accelerate(float x_Accl, float y_Accl) //Adds an acceleration to an object
     {
-        Accl += new Vector2(x_Accl, y_Accl);
+        transAccl += new Vector2(x_Accl, y_Accl);
     }  
+
+    public void Spin()
+    {
+        deltaTheta = (currentAngle - lastAngle) + (angleAccl * Time.fixedDeltaTime * Time.fixedDeltaTime);
+
+
+    }
 
     public void Move()
     {
 
 
-        deltaX = (currentPos.x - lastPos.x) + (Accl.x * Time.fixedDeltaTime * Time.fixedDeltaTime);
-        deltaY = (currentPos.y - lastPos.y) + (Accl.y * Time.fixedDeltaTime * Time.fixedDeltaTime);
+        deltaX = (currentPos.x - lastPos.x) + (transAccl.x * Time.fixedDeltaTime * Time.fixedDeltaTime);
+        deltaY = (currentPos.y - lastPos.y) + (transAccl.y * Time.fixedDeltaTime * Time.fixedDeltaTime);
 
         VerticalCollisions(ref deltaY); //Pasing a ref to a function passes the variable rather than a copy of it
         HorizontalCollisions(ref deltaX);
@@ -175,7 +190,6 @@ public class phy_Controller : MonoBehaviour
         gameObject.transform.Translate(new Vector2(run, 0));
 
     }
-
 
 
     public void VerticalCollisions(ref float deltaY)
