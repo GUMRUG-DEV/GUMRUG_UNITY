@@ -1,12 +1,10 @@
 fileFormatVersion: 2
-guid: 1f1d463dd21791042a75778a7a2a1c83
-timeCreated: 1490280250
+guid: 9af6735d4c5e56643b80a423d748aed9
+timeCreated: 1487174651
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences:
-  - pausePanel: {fileID: 1315831684742820, guid: a9511612fab689d4895542cc12f9e8ad,
-      type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
