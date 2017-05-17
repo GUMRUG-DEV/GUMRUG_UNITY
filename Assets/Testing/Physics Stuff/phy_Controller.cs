@@ -33,9 +33,6 @@ public class phy_Controller : MonoBehaviour
         lastPos,
         currentPos;
 
-    public float XplayerMovement;
-    public float YplayerMovement;
-
     //This is where we'll start the raycasts
 
     public Transform[]
@@ -48,7 +45,7 @@ public class phy_Controller : MonoBehaviour
     //Serializable Variables
 
     public float
-        JumpPower,
+        MaxJumpHeight,
         SpeedPower,
         SkinWidth,
         Gravity;
@@ -59,7 +56,7 @@ public class phy_Controller : MonoBehaviour
 
     public GameObject attatched = null;
 
-
+    public CollisionInfo collisions;
 
     public float
          Mass;
@@ -164,7 +161,7 @@ public class phy_Controller : MonoBehaviour
 
     public void Move()
     {
-
+        collisions.Reset();
 
         deltaX = (currentPos.x - lastPos.x) + (transAccl.x * Time.fixedDeltaTime * Time.fixedDeltaTime);
         deltaY = (currentPos.y - lastPos.y) + (transAccl.y * Time.fixedDeltaTime * Time.fixedDeltaTime);
@@ -217,7 +214,7 @@ public class phy_Controller : MonoBehaviour
 
                     // Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance; //The new shoot distance must be set equal to the hit distance
-
+                    collisions.top = true;
                 }
             }
         }
@@ -248,6 +245,7 @@ public class phy_Controller : MonoBehaviour
 
                         //   Debug.Log((hit.distance - SkinWidth) * dirY);
                         rayLength = hit.distance;
+                        collisions.bottom = true;
                     }
                 }
             }
@@ -272,6 +270,8 @@ public class phy_Controller : MonoBehaviour
                    // Debug.Log("Horizontal Hit");
                     deltaX = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
+                    collisions.right = true;
+
                 }
             }
         }
@@ -288,6 +288,7 @@ public class phy_Controller : MonoBehaviour
                     
                     deltaX = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
+                    collisions.left = true;
                 }
             }
         }
@@ -364,4 +365,18 @@ public class phy_Controller : MonoBehaviour
 
 
 
+
+    public struct CollisionInfo
+    {
+        public bool top, bottom, left, right;
+
+        public void Reset()
+        {
+            top = false;
+            bottom = false;
+            left = false;
+            right = false;
+        }
+
+    }
 }

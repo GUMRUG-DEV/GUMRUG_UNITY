@@ -9,12 +9,14 @@ public class input_Controller : MonoBehaviour
     phy_Controller phy_Controller;
     int input;
     int lastInput;
+    float initDisp;
 
     // Use this for initialization
     void Start()
     {
         phy_Controller = gameObject.GetComponent<phy_Controller>();
-
+        initDisp = Time.fixedDeltaTime * Mathf.Sqrt(2 * phy_Controller.Gravity * phy_Controller.MaxJumpHeight);
+        Debug.Log(initDisp);
     }
 
     // Update is called once per frame
@@ -91,13 +93,11 @@ public class input_Controller : MonoBehaviour
         
 
 
-        Debug.Log(phy_Controller.XplayerMovement);
-
         //Jumping
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && phy_Controller.collisions.bottom)
         {
             Debug.Log("hi");
-            phy_Controller.YplayerMovement = .01f;
+            phy_Controller.lastPos.y -= initDisp;
         }
         
 
