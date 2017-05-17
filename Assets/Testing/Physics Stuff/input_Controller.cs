@@ -54,7 +54,7 @@ public class input_Controller : MonoBehaviour
                     phy_Controller.lastPos.x = phy_Controller.currentPos.x - phy_Controller.attatched.GetComponent<phy_Controller>().deltaX;
                     Debug.Log(phy_Controller.lastPos.x);
                 }
-                
+              
                 //  phy_Controller.X_AccelerateTo(0);
             }
         }

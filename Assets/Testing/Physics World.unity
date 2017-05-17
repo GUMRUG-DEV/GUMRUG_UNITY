@@ -474,11 +474,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialVelocity: {x: 0, y: 0}
-  Accl: {x: 0, y: 0}
+  transAccl: {x: 0, y: 0}
+  angleAccl: 0
   hasGravity: 1
   isPlayer: 1
+  deltaTheta: 0
   deltaX: 0
   deltaY: 0
+  lastAngle: 0
+  currentAngle: 0
   lastPos: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
   XplayerMovement: 0
@@ -972,11 +976,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialVelocity: {x: 0, y: 0}
-  Accl: {x: 0, y: 0}
+  transAccl: {x: 0, y: 0}
+  angleAccl: 0
   hasGravity: 0
   isPlayer: 0
+  deltaTheta: 0
   deltaX: 0
   deltaY: 0
+  lastAngle: 0
+  currentAngle: 0
   lastPos: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
   XplayerMovement: 0
@@ -1560,12 +1568,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6b6f8f73dba2946b0804bf86cf3f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialVelocity: {x: 0, y: 0}
-  Accl: {x: 0, y: 0}
+  initialVelocity: {x: -0.1, y: 0}
+  transAccl: {x: 0, y: 0}
+  angleAccl: 0
   hasGravity: 0
   isPlayer: 0
+  deltaTheta: 0
   deltaX: 0
   deltaY: 0
+  lastAngle: 0
+  currentAngle: 0
   lastPos: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
   XplayerMovement: 0
