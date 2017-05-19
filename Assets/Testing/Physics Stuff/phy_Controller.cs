@@ -237,7 +237,6 @@ public class phy_Controller : MonoBehaviour
                         {
 
                             attatched = hit.transform.gameObject;
-                            Debug.Log(lastPos.x);
                             deltaX += hit.transform.gameObject.GetComponent<phy_Controller>().deltaX;
 
                         }

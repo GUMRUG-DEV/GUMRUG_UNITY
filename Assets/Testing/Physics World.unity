@@ -282,13 +282,11 @@ MonoBehaviour:
   currentAngle: 0
   lastPos: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
-  XplayerMovement: 0
-  YplayerMovement: 0
   RightRaycastOrigins: []
   LeftRaycastOrigins: []
   UpRaycastOrigins: []
   DownRaycastOrigins: []
-  JumpPower: 0
+  MaxJumpHeight: 0
   SpeedPower: 0
   SkinWidth: 0
   Gravity: 0
@@ -514,8 +512,6 @@ MonoBehaviour:
   currentAngle: 0
   lastPos: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
-  XplayerMovement: 0
-  YplayerMovement: 0
   RightRaycastOrigins:
   - {fileID: 148093691}
   - {fileID: 1448794328}
@@ -532,10 +528,10 @@ MonoBehaviour:
   - {fileID: 922067479}
   - {fileID: 1879014379}
   - {fileID: 808993}
-  JumpPower: 0
+  MaxJumpHeight: 8
   SpeedPower: 1
   SkinWidth: 0.015
-  Gravity: -80
+  Gravity: -120
   playerSpeed: 0
   CollisionMask:
     serializedVersion: 2
@@ -1017,13 +1013,11 @@ MonoBehaviour:
   currentAngle: 0
   lastPos: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
-  XplayerMovement: 0
-  YplayerMovement: 0
   RightRaycastOrigins: []
   LeftRaycastOrigins: []
   UpRaycastOrigins: []
   DownRaycastOrigins: []
-  JumpPower: 0
+  MaxJumpHeight: 0
   SpeedPower: 0
   SkinWidth: 0
   Gravity: 0
@@ -1057,13 +1051,11 @@ MonoBehaviour:
   currentAngle: 0
   lastPos: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
-  XplayerMovement: 0
-  YplayerMovement: 0
   RightRaycastOrigins: []
   LeftRaycastOrigins: []
   UpRaycastOrigins: []
   DownRaycastOrigins: []
-  JumpPower: 0
+  MaxJumpHeight: 0
   SpeedPower: 0
   SkinWidth: 0
   Gravity: 0
@@ -1264,13 +1256,11 @@ MonoBehaviour:
   currentAngle: 0
   lastPos: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
-  XplayerMovement: 0
-  YplayerMovement: 0
   RightRaycastOrigins: []
   LeftRaycastOrigins: []
   UpRaycastOrigins: []
   DownRaycastOrigins: []
-  JumpPower: 0
+  MaxJumpHeight: 0
   SpeedPower: 0
   SkinWidth: 0
   Gravity: 0
@@ -1691,13 +1681,11 @@ MonoBehaviour:
   currentAngle: 0
   lastPos: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
-  XplayerMovement: 0
-  YplayerMovement: 0
   RightRaycastOrigins: []
   LeftRaycastOrigins: []
   UpRaycastOrigins: []
   DownRaycastOrigins: []
-  JumpPower: 0
+  MaxJumpHeight: 0
   SpeedPower: 0
   SkinWidth: 0
   Gravity: 0
