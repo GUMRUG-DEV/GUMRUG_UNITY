@@ -19,8 +19,8 @@ public class input_Controller : MonoBehaviour
         Debug.Log(phy_Controller.MaxJumpHeight);
 
         initDisp = Time.fixedDeltaTime * Mathf.Sqrt(2 * -phy_Controller.Gravity * phy_Controller.MaxJumpHeight);
-        Debug.Log("Displacement Squared: " + 2 * phy_Controller.Gravity * phy_Controller.MaxJumpHeight);
-        Debug.Log("Displacement: " + initDisp);
+        //Debug.Log("Displacement Squared: " + 2 * phy_Controller.Gravity * phy_Controller.MaxJumpHeight);
+        //Debug.Log("Displacement: " + initDisp);
     }
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class input_Controller : MonoBehaviour
             }
             else
             {
-                Debug.Log("Not moving.");
+                
                 phy_Controller.playerSpeed = 0;
 
                 //phy_Controller.lastPos.x = phy_Controller.attatched.GetComponent<phy_Controller>().lastPos.x;

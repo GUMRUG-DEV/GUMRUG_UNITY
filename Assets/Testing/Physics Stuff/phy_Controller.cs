@@ -266,7 +266,19 @@ public class phy_Controller : MonoBehaviour
 
                 if (hit)
                 {
-                   // Debug.Log("Horizontal Hit");
+                    float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+                    
+                    if (slopeAngle <= 80)
+                    {
+                        climb_Slope()
+                    }
+
+                    
+                    //Debug.Log(slopeAngle);
+
+                    // Debug.Log("Horizontal Hit");
+                    
+
                     deltaX = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
                     collisions.right = true;
@@ -283,8 +295,10 @@ public class phy_Controller : MonoBehaviour
 
                 if (hit)
                 {
-                 //   Debug.Log("Horizontal Hit");
-                    
+                    float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+                    Debug.Log(slopeAngle);
+                    //   Debug.Log("Horizontal Hit");
+
                     deltaX = (hit.distance - SkinWidth) * dirX;
                     rayLength = hit.distance;
                     collisions.left = true;
@@ -294,6 +308,13 @@ public class phy_Controller : MonoBehaviour
 
     }
 
+
+    public void climb_Slope(ref Vector2 velocity, float slopeAngle)
+    {
+        float movedistance = Mathf.Abs(velocity.x);
+        velocity.y = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * movedistance;
+        velocity.x = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * movedistance * Mathf.Sign(movedistance);
+    }
 
     private void raycasts_Debug()
     {

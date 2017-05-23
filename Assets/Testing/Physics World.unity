@@ -598,7 +598,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 594759876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -125.72, y: 26.13, z: 0}
+  m_LocalPosition: {x: -64.47, y: 2.31, z: 0}
   m_LocalScale: {x: 1.9, y: 1.9, z: 1}
   m_Children:
   - {fileID: 2108154651}
@@ -1669,7 +1669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6b6f8f73dba2946b0804bf86cf3f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialVelocity: {x: -0.1, y: 0}
+  initialVelocity: {x: 0, y: 0}
   transAccl: {x: 0, y: 0}
   angleAccl: 0
   hasGravity: 0
@@ -1966,6 +1966,7 @@ GameObject:
   - component: {fileID: 1529269842}
   - component: {fileID: 1529269841}
   - component: {fileID: 1529269840}
+  - component: {fileID: 1529269844}
   m_Layer: 15
   m_Name: Quad (2)
   m_TagString: Ground
@@ -2031,13 +2032,51 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1529269839}
-  m_LocalRotation: {x: -0, y: -0, z: -0.5087398, w: 0.86092037}
-  m_LocalPosition: {x: -35.05, y: 13.74, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.5, w: 0.8660254}
+  m_LocalPosition: {x: -34.47, y: 14.2, z: 0}
   m_LocalScale: {x: 0.7996052, y: 54.507694, z: 0.78999996}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -61.160004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60}
+--- !u!114 &1529269844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1529269839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6b6f8f73dba2946b0804bf86cf3f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialVelocity: {x: 0, y: 0}
+  transAccl: {x: 0, y: 0}
+  angleAccl: 0
+  hasGravity: 0
+  isPlayer: 0
+  deltaTheta: 0
+  deltaX: 0
+  deltaY: 0
+  lastAngle: 0
+  currentAngle: 0
+  lastPos: {x: 0, y: 0}
+  currentPos: {x: 0, y: 0}
+  RightRaycastOrigins: []
+  LeftRaycastOrigins: []
+  UpRaycastOrigins: []
+  DownRaycastOrigins: []
+  MaxJumpHeight: 0
+  SpeedPower: 0
+  SkinWidth: 0
+  Gravity: 0
+  playerSpeed: 0
+  CollisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attatched: {fileID: 0}
+  Mass: 0
+  collision: 0
 --- !u!1 &1714926300
 GameObject:
   m_ObjectHideFlags: 0
