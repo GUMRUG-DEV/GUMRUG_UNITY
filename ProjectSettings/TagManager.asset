@@ -7,6 +7,8 @@ TagManager:
   - Platform
   - Ground
   - Death Box
+  - ENEMY
+  - LIFE
   layers:
   - Default
   - TransparentFX

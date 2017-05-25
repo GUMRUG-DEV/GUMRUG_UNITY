@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/Levels/First Level/FirstLevel - OutsideF.unity
   - enabled: 1
     path: Assets/Levels/First Level/First Level-House.unity
+  - enabled: 1
+    path: Assets/Health and Combat/Health and Combat.unity
