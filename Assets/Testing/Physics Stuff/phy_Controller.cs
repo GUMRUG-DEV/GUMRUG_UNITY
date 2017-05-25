@@ -50,6 +50,8 @@ public class phy_Controller : MonoBehaviour
         SkinWidth,
         Gravity;
 
+    public float rise;
+
     public float playerSpeed;
 
     public LayerMask CollisionMask;
@@ -182,9 +184,9 @@ public class phy_Controller : MonoBehaviour
 
         HorizontalCollisions(ref run);
 
-        currentPos.x += run;
-        lastPos.x += run;
-        gameObject.transform.Translate(new Vector2(run, 0));
+        currentPos += new Vector2(run, rise);
+        lastPos += new Vector2(run, rise);
+        gameObject.transform.Translate(new Vector2(run, rise));
 
     }
 
@@ -252,7 +254,8 @@ public class phy_Controller : MonoBehaviour
     }
 
     public void HorizontalCollisions(ref float deltaX)
-    { 
+    {
+        //Debug.Log("Preprocessing lastpos: " + lastPos.x);
         float dirX = Mathf.Sign(deltaX);
         float rayLength = Mathf.Abs(deltaX) + SkinWidth;
 
@@ -270,16 +273,21 @@ public class phy_Controller : MonoBehaviour
                     
                     if (slopeAngle <= 80)
                     {
-                        climb_Slope()
+                      climb_Slope(ref deltaX, slopeAngle);
+                    }
+                    else
+                    {
+                        rise = 0;
                     }
 
-                    
+                    Debug.Log(slopeAngle);
                     //Debug.Log(slopeAngle);
 
                     // Debug.Log("Horizontal Hit");
-                    
+
 
                     deltaX = (hit.distance - SkinWidth) * dirX;
+                    Debug.Log(deltaX);
                     rayLength = hit.distance;
                     collisions.right = true;
 
@@ -296,7 +304,16 @@ public class phy_Controller : MonoBehaviour
                 if (hit)
                 {
                     float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-                    Debug.Log(slopeAngle);
+
+                    if (slopeAngle <= 80)
+                    {
+                        climb_Slope(ref deltaX, slopeAngle);
+                    }
+                    else
+                    {
+                        rise = 0;
+                    }
+                    //Debug.Log(slopeAngle);
                     //   Debug.Log("Horizontal Hit");
 
                     deltaX = (hit.distance - SkinWidth) * dirX;
@@ -309,11 +326,18 @@ public class phy_Controller : MonoBehaviour
     }
 
 
-    public void climb_Slope(ref Vector2 velocity, float slopeAngle)
+    public void climb_Slope(ref float linear_deltaX, float slopeAngle)
     {
-        float movedistance = Mathf.Abs(velocity.x);
-        velocity.y = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * movedistance;
-        velocity.x = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * movedistance * Mathf.Sign(movedistance);
+        //Debug.Log("Last position: " + lastPos.x);
+       // Debug.Log("Current position: " + currentPos.x);
+        //Debug.Log("DeltaX: " + linear_deltaX);
+       // Debug.Log("Cosine: " + Mathf.Cos(slopeAngle * Mathf.Deg2Rad));
+        
+        float movedistance = Mathf.Abs(linear_deltaX);
+        rise += Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * movedistance;
+         
+        linear_deltaX += Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * movedistance * Mathf.Sign(movedistance);
+       // Debug.Log("New Last Position: " + lastPos.x);
     }
 
     private void raycasts_Debug()

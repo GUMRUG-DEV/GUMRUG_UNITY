@@ -55,10 +55,11 @@ public class input_Controller : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("hi");
-                    Debug.Log(phy_Controller.lastPos.x);
+                    //Debug.Log("hi");
+                    //Debug.Log(phy_Controller.lastPos.x);
                     phy_Controller.lastPos.x = phy_Controller.currentPos.x - phy_Controller.attatched.GetComponent<phy_Controller>().deltaX;
-                    Debug.Log(phy_Controller.lastPos.x);
+                    phy_Controller.lastPos.y = phy_Controller.currentPos.y - phy_Controller.attatched.GetComponent<phy_Controller>().deltaY;
+                    //Debug.Log(phy_Controller.lastPos.x);
                 }
               
                 //  phy_Controller.X_AccelerateTo(0);
