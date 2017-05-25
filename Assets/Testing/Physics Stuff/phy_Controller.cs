@@ -181,8 +181,12 @@ public class phy_Controller : MonoBehaviour
     public void CalcInput()
     {
         float run = SpeedPower * playerSpeed;
+        
+
 
         HorizontalCollisions(ref run);
+
+       
 
         currentPos += new Vector2(run, rise);
         lastPos += new Vector2(run, rise);
@@ -249,6 +253,10 @@ public class phy_Controller : MonoBehaviour
                         collisions.bottom = true;
                     }
                 }
+                else
+                {
+                    rise = 0;
+                }
             }
         }
     }
@@ -292,6 +300,7 @@ public class phy_Controller : MonoBehaviour
                     collisions.right = true;
 
                 }
+
             }
         }
         else
@@ -334,9 +343,9 @@ public class phy_Controller : MonoBehaviour
        // Debug.Log("Cosine: " + Mathf.Cos(slopeAngle * Mathf.Deg2Rad));
         
         float movedistance = Mathf.Abs(linear_deltaX);
-        rise += Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * movedistance;
+        rise = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * movedistance;
          
-        linear_deltaX += Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * movedistance * Mathf.Sign(movedistance);
+        linear_deltaX = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * movedistance * Mathf.Sign(movedistance);
        // Debug.Log("New Last Position: " + lastPos.x);
     }
 
