@@ -91,7 +91,7 @@ public class input_Controller : MonoBehaviour
         
 
 
-        Debug.Log(phy_Controller.XplayerMovement);
+      //  Debug.Log(phy_Controller.XplayerMovement);
 
         //Jumping
         if (Input.GetKeyDown(KeyCode.Space))
