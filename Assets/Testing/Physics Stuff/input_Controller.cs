@@ -15,8 +15,8 @@ public class input_Controller : MonoBehaviour
     void Start()
     {
         phy_Controller = gameObject.GetComponent<phy_Controller>();
-        Debug.Log(phy_Controller.Gravity);
-        Debug.Log(phy_Controller.MaxJumpHeight);
+        //Debug.Log(phy_Controller.Gravity);
+        //Debug.Log(phy_Controller.MaxJumpHeight);
 
         initDisp = Time.fixedDeltaTime * Mathf.Sqrt(2 * -phy_Controller.Gravity * phy_Controller.MaxJumpHeight);
         //Debug.Log("Displacement Squared: " + 2 * phy_Controller.Gravity * phy_Controller.MaxJumpHeight);

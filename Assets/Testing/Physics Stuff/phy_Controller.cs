@@ -50,7 +50,6 @@ public class phy_Controller : MonoBehaviour
         SkinWidth,
         Gravity;
 
-    public float rise;
 
     public float playerSpeed;
 
@@ -169,7 +168,7 @@ public class phy_Controller : MonoBehaviour
         deltaY = (currentPos.y - lastPos.y) + (transAccl.y * Time.fixedDeltaTime * Time.fixedDeltaTime);
 
         VerticalCollisions(ref deltaY); //Pasing a ref to a function passes the variable rather than a copy of it
-        HorizontalCollisions(ref deltaX);
+        HorizontalCollisions(ref deltaX, ref deltaY);
         
         gameObject.transform.Translate(new Vector2(deltaX, deltaY));
         lastPos = currentPos; //After updating the current position variable becomes the last position.
@@ -181,10 +180,11 @@ public class phy_Controller : MonoBehaviour
     public void CalcInput()
     {
         float run = SpeedPower * playerSpeed;
+        float rise = 0;
         
 
 
-        HorizontalCollisions(ref run);
+        HorizontalCollisions(ref run, ref rise);
 
        
 
@@ -253,15 +253,11 @@ public class phy_Controller : MonoBehaviour
                         collisions.bottom = true;
                     }
                 }
-                else
-                {
-                    rise = 0;
-                }
             }
         }
     }
 
-    public void HorizontalCollisions(ref float deltaX)
+    public void HorizontalCollisions(ref float deltaX, ref float rise)
     {
         //Debug.Log("Preprocessing lastpos: " + lastPos.x);
         float dirX = Mathf.Sign(deltaX);
@@ -277,27 +273,33 @@ public class phy_Controller : MonoBehaviour
 
                 if (hit)
                 {
-                    float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
                     
+                    float slopeAngle = Vector2.Angle(Vector2.up, hit.normal);
+                    Debug.Log(slopeAngle);
+                    Debug.DrawRay(hit.point, hit.normal * 3, Color.red);
+                    Debug.DrawRay(hit.point, Vector2.up * 3, Color.red);
+
                     if (slopeAngle <= 80)
                     {
-                      climb_Slope(ref deltaX, slopeAngle);
+                      climb_Slope(ref deltaX, ref rise, slopeAngle);
                     }
                     else
                     {
-                        rise = 0;
+                        deltaX = (hit.distance - SkinWidth) * dirX;
+                        collisions.right = true;
                     }
 
-                    Debug.Log(slopeAngle);
+
+                    //Debug.Log(slopeAngle);
                     //Debug.Log(slopeAngle);
 
                     // Debug.Log("Horizontal Hit");
 
 
-                    deltaX = (hit.distance - SkinWidth) * dirX;
-                    Debug.Log(deltaX);
+                    
+                   
                     rayLength = hit.distance;
-                    collisions.right = true;
+                    
 
                 }
 
@@ -312,22 +314,27 @@ public class phy_Controller : MonoBehaviour
 
                 if (hit)
                 {
+                    
                     float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+                    Debug.DrawRay(hit.point, hit.normal * 3, Color.red);
+                    Debug.DrawRay(hit.point, Vector2.up * 3, Color.red);
+                    Debug.Log(slopeAngle);
 
                     if (slopeAngle <= 80)
                     {
-                        climb_Slope(ref deltaX, slopeAngle);
+                        climb_Slope(ref deltaX, ref rise, slopeAngle);
                     }
                     else
                     {
-                        rise = 0;
+                        deltaX = (hit.distance - SkinWidth) * dirX;
+                        collisions.left = true;
                     }
                     //Debug.Log(slopeAngle);
                     //   Debug.Log("Horizontal Hit");
 
-                    deltaX = (hit.distance - SkinWidth) * dirX;
+                    
                     rayLength = hit.distance;
-                    collisions.left = true;
+
                 }
             }
         }
@@ -335,17 +342,20 @@ public class phy_Controller : MonoBehaviour
     }
 
 
-    public void climb_Slope(ref float linear_deltaX, float slopeAngle)
+    public void climb_Slope(ref float run, ref float rise, float slopeAngle)
     {
         //Debug.Log("Last position: " + lastPos.x);
        // Debug.Log("Current position: " + currentPos.x);
         //Debug.Log("DeltaX: " + linear_deltaX);
        // Debug.Log("Cosine: " + Mathf.Cos(slopeAngle * Mathf.Deg2Rad));
         
-        float movedistance = Mathf.Abs(linear_deltaX);
+        float movedistance = Mathf.Abs(run);
         rise = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * movedistance;
          
-        linear_deltaX = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * movedistance * Mathf.Sign(movedistance);
+        run = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * movedistance * Mathf.Sign(run);
+
+        Debug.Log(rise);
+        Debug.Log(run);
        // Debug.Log("New Last Position: " + lastPos.x);
     }
 
