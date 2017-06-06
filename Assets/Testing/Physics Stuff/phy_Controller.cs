@@ -13,6 +13,8 @@ public class phy_Controller : MonoBehaviour
         initialVelocity,
         transAccl;
 
+    public float slopeAngle;
+
     public float
         angleAccl;
 
@@ -170,6 +172,7 @@ public class phy_Controller : MonoBehaviour
         VerticalCollisions(ref deltaY); //Pasing a ref to a function passes the variable rather than a copy of it
         HorizontalCollisions(ref deltaX, ref deltaY);
         
+
         gameObject.transform.Translate(new Vector2(deltaX, deltaY));
         lastPos = currentPos; //After updating the current position variable becomes the last position.
         currentPos = gameObject.transform.position; //Update the position
@@ -215,11 +218,15 @@ public class phy_Controller : MonoBehaviour
 
                     //The new velocity is equal to the distance of the hit minus the skinwidth times the direction
                     deltaY = (hit.distance - SkinWidth) * dirY;
-
-
-
                     // Debug.Log((hit.distance - SkinWidth) * dirY);
                     rayLength = hit.distance; //The new shoot distance must be set equal to the hit distance
+
+                    if (collisions.climbing)
+                    {
+                        lastPos.x = lastPos.y / Mathf.Tan(slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(deltaX);
+                    }
+
+
                     collisions.top = true;
                 }
             }
@@ -250,9 +257,42 @@ public class phy_Controller : MonoBehaviour
 
                         //   Debug.Log((hit.distance - SkinWidth) * dirY);
                         rayLength = hit.distance;
+
                         collisions.bottom = true;
                     }
+
+                    if (collisions.climbing)
+                    {
+                        float directionX = Mathf.Sign(deltaX);
+                        rayLength = Mathf.Abs(deltaX) + SkinWidth;
+                        Vector2 rayOrigin;
+
+                        if (directionX == -1)
+                        {
+                            rayOrigin = DownRaycastOrigins[2].transform.position + Vector3.up * deltaY;
+                        }
+                        else
+                        {
+                            rayOrigin = DownRaycastOrigins[0].transform.position + Vector3.up * deltaY;
+                        }
+
+                        RaycastHit2D hit2 = Physics2D.Raycast(rayOrigin, Vector2.right * deltaX, rayLength, CollisionMask);
+
+                        if (hit2)
+                        {
+                            float slope = Vector2.Angle(hit.normal, Vector2.up);
+
+                            if (slope != slopeAngle)
+                            {
+                                deltaX = (hit.distance - SkinWidth) * directionX;
+                            }
+                        }
+                    }
+
                 }
+
+
+
             }
         }
     }
@@ -274,18 +314,25 @@ public class phy_Controller : MonoBehaviour
                 if (hit)
                 {
                     
-                    float slopeAngle = Vector2.Angle(Vector2.up, hit.normal);
-                    Debug.Log(slopeAngle);
-                    Debug.DrawRay(hit.point, hit.normal * 3, Color.red);
-                    Debug.DrawRay(hit.point, Vector2.up * 3, Color.red);
+                    slopeAngle = Vector2.Angle(Vector2.up, hit.normal);
 
-                    if (slopeAngle <= 80)
+
+                    if (!collisions.climbing || slopeAngle <= 80)
                     {
-                      climb_Slope(ref deltaX, ref rise, slopeAngle);
+                        float DistToSlope = 0;
+                        if (slopeAngle != collisions.old_slopeAngle)
+                        {
+                            DistToSlope = hit.distance - SkinWidth;
+                            deltaX -= DistToSlope;
+                        }
+
+                        climb_Slope(ref deltaX, ref rise, slopeAngle);
                     }
                     else
                     {
                         deltaX = (hit.distance - SkinWidth) * dirX;
+                        rayLength = hit.distance;
+
                         collisions.right = true;
                     }
 
@@ -298,7 +345,7 @@ public class phy_Controller : MonoBehaviour
 
                     
                    
-                    rayLength = hit.distance;
+                    
                     
 
                 }
@@ -315,25 +362,27 @@ public class phy_Controller : MonoBehaviour
                 if (hit)
                 {
                     
-                    float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-                    Debug.DrawRay(hit.point, hit.normal * 3, Color.red);
-                    Debug.DrawRay(hit.point, Vector2.up * 3, Color.red);
-                    Debug.Log(slopeAngle);
+                   slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
-                    if (slopeAngle <= 80)
+
+                    float DistToSlope = 0;
+                    if (slopeAngle != collisions.old_slopeAngle)
                     {
-                        climb_Slope(ref deltaX, ref rise, slopeAngle);
+                        DistToSlope = hit.distance - SkinWidth;
+                        deltaX += DistToSlope;
                     }
                     else
                     {
                         deltaX = (hit.distance - SkinWidth) * dirX;
+                        rayLength = hit.distance;
+
                         collisions.left = true;
                     }
                     //Debug.Log(slopeAngle);
                     //   Debug.Log("Horizontal Hit");
 
                     
-                    rayLength = hit.distance;
+                    
 
                 }
             }
@@ -353,15 +402,16 @@ public class phy_Controller : MonoBehaviour
         rise = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * movedistance;
          
         run = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * movedistance * Mathf.Sign(run);
+        collisions.climbing = true;
+        collisions.slopeAngle = slopeAngle;
 
-        Debug.Log(rise);
-        Debug.Log(run);
        // Debug.Log("New Last Position: " + lastPos.x);
     }
 
+
     private void raycasts_Debug()
     {
-
+        /*
         foreach (Transform point in RightRaycastOrigins)
         {
             Debug.DrawRay(point.transform.position, Vector2.right * 4, Color.black);
@@ -381,11 +431,12 @@ public class phy_Controller : MonoBehaviour
         {
             Debug.DrawRay(point.transform.position, Vector2.down * 4, Color.black);
         }
+        */
     }
 
     private void raycasts_UpdateOrigins()
     {
-        
+        /*
 
         foreach (Transform point in RightRaycastOrigins)
         {
@@ -423,7 +474,7 @@ public class phy_Controller : MonoBehaviour
 
             point.transform.localPosition = new Vector2(posX * insetProportion, posY * insetProportion);
         }
-
+        */
     }
 
 
@@ -431,14 +482,21 @@ public class phy_Controller : MonoBehaviour
 
     public struct CollisionInfo
     {
-        public bool top, bottom, left, right;
+        public bool top, bottom, left, right, climbing;
+
+        public float slopeAngle, old_slopeAngle;
 
         public void Reset()
         {
+            climbing = false;
             top = false;
             bottom = false;
             left = false;
             right = false;
+
+            old_slopeAngle = slopeAngle;
+
+            slopeAngle = 0;
         }
 
     }
