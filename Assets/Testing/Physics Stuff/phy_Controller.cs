@@ -8,6 +8,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class phy_Controller : MonoBehaviour
 {
+    string lasttag;
+
+    combat_Controller cbt_Controller;
     //Pure Physics Stats  
     public Vector2
         initialVelocity,
@@ -78,6 +81,7 @@ public class phy_Controller : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        cbt_Controller = gameObject.GetComponent<combat_Controller>();
         currentPos = gameObject.transform.localPosition;
         lastPos = currentPos - initialVelocity;
 
@@ -260,7 +264,7 @@ public class phy_Controller : MonoBehaviour
 
                         collisions.bottom = true;
                     }
-
+                    /*
                     if (collisions.climbing)
                     {
                         float directionX = Mathf.Sign(deltaX);
@@ -288,6 +292,7 @@ public class phy_Controller : MonoBehaviour
                             }
                         }
                     }
+                    */
 
                 }
 
@@ -317,24 +322,33 @@ public class phy_Controller : MonoBehaviour
                     slopeAngle = Vector2.Angle(Vector2.up, hit.normal);
 
 
-                    if (!collisions.climbing || slopeAngle <= 80)
-                    {
-                        float DistToSlope = 0;
-                        if (slopeAngle != collisions.old_slopeAngle)
+
+                        if (slopeAngle <= 80 && hit.transform.gameObject.tag != "Enemy")// || !collisions.climbing)
                         {
-                            DistToSlope = hit.distance - SkinWidth;
-                            deltaX -= DistToSlope;
+                            /*
+                            float DistToSlope = 0;
+                            if (slopeAngle != collisions.old_slopeAngle)
+                            {
+                                DistToSlope = hit.distance - SkinWidth;
+                                deltaX -= DistToSlope;
+                            }
+                            */
+                            climb_Slope(ref deltaX, ref rise, slopeAngle);
+                        }
+                        else
+                        {
+                            deltaX = (hit.distance - SkinWidth) * dirX;
+                            rayLength = hit.distance;
+
+                        if (hit.transform.tag == "Enemy")
+                        {
+                            Debug.Log("FIGHT!");
+                            cbt_Controller.is_playerTurn = true;
+                            cbt_Controller.is_battling = true;
                         }
 
-                        climb_Slope(ref deltaX, ref rise, slopeAngle);
-                    }
-                    else
-                    {
-                        deltaX = (hit.distance - SkinWidth) * dirX;
-                        rayLength = hit.distance;
-
                         collisions.right = true;
-                    }
+                        }
 
 
                     //Debug.Log(slopeAngle);
@@ -352,6 +366,7 @@ public class phy_Controller : MonoBehaviour
 
             }
         }
+        
         else
         {
             foreach (Transform point in LeftRaycastOrigins)
@@ -362,32 +377,52 @@ public class phy_Controller : MonoBehaviour
                 if (hit)
                 {
                     
-                   slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
 
-                    float DistToSlope = 0;
-                    if (slopeAngle != collisions.old_slopeAngle)
+                    slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+
+
+                    if (slopeAngle <= 80 && hit.transform.gameObject.tag != "Enemy")// || !collisions.climbing)
                     {
-                        DistToSlope = hit.distance - SkinWidth;
-                        deltaX += DistToSlope;
+                        /*
+                        float DistToSlope = 0;
+                        if (slopeAngle != collisions.old_slopeAngle)
+                        {
+                            DistToSlope = hit.distance - SkinWidth;
+                            deltaX -= DistToSlope;
+                        }
+                        */
+                        climb_Slope(ref deltaX, ref rise, slopeAngle);
                     }
                     else
                     {
                         deltaX = (hit.distance - SkinWidth) * dirX;
                         rayLength = hit.distance;
 
-                        collisions.left = true;
+                        if (hit.transform.tag == "Enemy" && hit.transform.tag != lasttag)
+                        {
+                            Debug.Log("FIGHT!");
+                            cbt_Controller.is_playerTurn = true;
+                            cbt_Controller.is_battling = true;
+                            lasttag = "Enemy";
+                        }
+
+                        collisions.right = true;
                     }
+
+
                     //Debug.Log(slopeAngle);
                     //   Debug.Log("Horizontal Hit");
 
-                    
-                    
+
+
 
                 }
-            }
-        }
 
+            }
+            
+        }
+        
     }
 
 
