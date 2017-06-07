@@ -151,30 +151,40 @@ public class combat_Controller : MonoBehaviour
             }
             else
             {
-                player.stamina -= move.useage_stamina;
-                enemy.health -= move.strength;
-                Debug.Log(enemy.health);
+                if (player.stamina >= move.useage_stamina)
+                {
+                    player.stamina -= move.useage_stamina;
+                    enemy.health -= move.strength;
+                    Debug.Log(enemy.health);
+                }
+                else
+                {
+                    Debug.Log("Too tired...");
+                }
             }
         }
         is_playerTurn = false;
     }
 
-   
+
 
     void plrPlan()
     {
         //Player's turn
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("FALCON PUUUUUUUUNCH!");
+            Debug.Log("punch");
             //add to display panel
             plrActions[count] = player.actions.Find(move => move.name == "punch");
 
             count++;
 
+            Debug.Log("You have " + (4 - count) + " moves left to use.");
+
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            Debug.Log("kick");
             //add to display panel
             plrActions[count] = player.actions.Find(move => move.name == "kick");
 
@@ -182,6 +192,7 @@ public class combat_Controller : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            Debug.Log("headbonk");
             //add to display panel
             plrActions[count] = player.actions.Find(move => move.name == "headbonk");
 
@@ -189,23 +200,30 @@ public class combat_Controller : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
+            Debug.Log("rest");
             //add to display panel
             if (count == 0)
             {
                 plrActions[count] = player.actions.Find(move => move.name == "rest");
                 count = 4;
             }
+            else
+            {
+                Debug.Log("Rest uses up all attack slots. Please decide against doing other attacks if you wish to rest.");
+            }
 
-            
+
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
+            Debug.Log("recover");
             if (count == 0)
             {
                 plrActions[count] = player.actions.Find(move => move.name == "recover");
+                Debug.Log("Recover uses up all attack slots. Please decide against doing other attacks if you wish to recover.");
                 count = 4;
             }
-            
+
         }
         else if (Input.GetKeyDown(KeyCode.Backspace))
         {
@@ -213,23 +231,28 @@ public class combat_Controller : MonoBehaviour
             {
                 count--;
                 plrActions[count] = null;
-            }      
+            }
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
 
+        }
     }
-
+     
     void foePlan()
     {
-        Debug.Log("Episode V: The Foe Strikes Back.");
+        ;
         for (int i = 0; i <= 2; i++)
         { 
             //Ai goes here.
             if (Random.Range(-1, 1) >= 0)
             {
+                Debug.Log("Foe decides to use mostly safe laser.");
                 foeActions[i] = enemy.actions.Find(move => move.name == "the sun is a deadly lazer");
             }
             else
             {
+                Debug.Log("Foe decides to ram you.");
                 foeActions[i] = enemy.actions.Find(move => move.name == "ram");
             }
 
@@ -242,7 +265,7 @@ public class combat_Controller : MonoBehaviour
         foreach (action move in foeActions)
         {
             player.health -= move.strength;
-            Debug.Log(player.health);
+            Debug.Log("Gum's Health: " + player.health);
             
         }
         is_playerTurn = true;
